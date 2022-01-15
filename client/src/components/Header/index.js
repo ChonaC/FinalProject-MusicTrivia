@@ -1,8 +1,7 @@
 import React from "react";
 // import { Link } from 'react-router-dom';
-import { Menu } from 'antd';
-import { HomeOutlined, TrophyOutlined, LoginOutlined } from '@ant-design/icons';
-const { SubMenu } = Menu;
+import { Menu } from "antd";
+import { HomeOutlined, TrophyOutlined, LoginOutlined } from "@ant-design/icons";
 
 const Header = () => {
     return (
@@ -17,7 +16,7 @@ const Header = () => {
                 Login
             </Menu.Item>
         </Menu>
-    )
-}
+    );
+};
 
 export default Header;

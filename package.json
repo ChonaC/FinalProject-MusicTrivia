@@ -1,5 +1,5 @@
 {
-    "name": "project-2-musictrivia",
+    "name": "FinalProject-MusicTrivia",
     "version": "1.0.0",
     "description": "",
     "main": "server.js",
@@ -18,7 +18,7 @@
         "eslint": "^7.12.1",
         "eslint-config-prettier": "^6.15.0",
         "nodemon": "^2.0.3",
-        "prettier": "^2.1.2"
+        "prettier": "^2.5.1"
     },
     "bugs": {
         "url": "https://github.com/ChonaC/Project-2-MUSICTRIVIA/issues"
