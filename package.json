@@ -21,10 +21,14 @@
         "prettier": "^2.1.2"
     },
     "bugs": {
-        "url": "https://github.com/ChonaC/Project-2-MUSICTRIVIA/issues"
+        "url": "https://github.com/ChonaC/FinalProject-MusicTrivia/issues"
     },
-    "homepage": "https://github.com/ChonaC/Project-2-MUSICTRIVIA#readme",
+    "homepage": "https://github.com/ChonaC/FinalProject-MusicTrivia#readme",
     "dependencies": {
+        "@chakra-ui/react": "^1.7.4",
+        "@emotion/react": "^11.7.1",
+        "@emotion/styled": "^11.6.0",
+        "antd": "^4.18.3",
         "bcrypt": "^5.0.1",
         "connect-session-sequelize": "^7.1.2",
         "cors": "^2.8.5",
@@ -32,6 +36,7 @@
         "express": "^4.17.1",
         "express-handlebars": "^5.3.4",
         "express-session": "^1.17.2",
+        "framer-motion": "^5.6.0",
         "mysql2": "^2.3.3-rc.0",
         "sequelize": "^6.9.0"
     }
