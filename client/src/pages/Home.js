@@ -25,10 +25,9 @@ const Home = () => {
 
     return (
         <div
-            id="start-page page"
+            id="start-page"
+            className="page"
             style={{
-                padding: 24,
-                backgroundColor: "#fff",
                 textAlign: "center",
             }}
         >
