@@ -4,6 +4,25 @@ import { PlayCircleOutlined } from "@ant-design/icons";
 const { Option } = Select;
 
 const Home = () => {
+    const formItemLayout = {
+        labelCol: {
+            xs: {
+                span: 24,
+            },
+            sm: {
+                span: 8,
+            },
+        },
+        wrapperCol: {
+            xs: {
+                span: 24,
+            },
+            sm: {
+                span: 8,
+            },
+        },
+    };
+
     return (
         <div
             id="start-page page"
@@ -14,7 +33,7 @@ const Home = () => {
             }}
         >
             <p>Guess the name of each song.</p>
-            <Form>
+            <Form {...formItemLayout}>
                 <Form.Item
                     name="quiz-length"
                     label="Quiz Length"
