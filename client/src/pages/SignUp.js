@@ -36,7 +36,7 @@ const SignUp = () => {
             <Form {...formItemLayout}>
                 <Form.Item
                     name="email"
-                    label="E-mail"
+                    label="Email"
                     hasFeedback
                     rules={[
                         {
@@ -53,7 +53,7 @@ const SignUp = () => {
                         prefix={
                             <MailOutlined className="site-form-item-icon" />
                         }
-                        placeholder="user@email.com"
+                        placeholder="Email"
                     />
                 </Form.Item>
                 <Form.Item
@@ -65,7 +65,6 @@ const SignUp = () => {
                         {
                             required: true,
                             message: "Please input your username!",
-                            whitespace: true,
                         },
                     ]}
                 >
@@ -138,6 +137,7 @@ const SignUp = () => {
                     >
                         Register
                     </Button>
+                    &nbsp;Or <a href="">login now!</a>
                 </Form.Item>
             </Form>
         </div>
