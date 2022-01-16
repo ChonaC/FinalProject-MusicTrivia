@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { Form, Input, Button } from "antd";
 import {
     MailOutlined,
@@ -137,7 +138,7 @@ const SignUp = () => {
                     >
                         Register
                     </Button>
-                    &nbsp;Or <a href="">login now!</a>
+                    &nbsp;Or <Link to="/login">login now!</Link>
                 </Form.Item>
             </Form>
         </div>
