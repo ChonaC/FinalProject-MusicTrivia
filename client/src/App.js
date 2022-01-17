@@ -8,6 +8,7 @@ import Header from "./components/Header";
 import Home from "./pages/Home";
 import SignUp from "./pages/SignUp";
 import Login from "./pages/Login";
+import Leaderboard from "./pages/Leaderboard";
 
 function App() {
     return (
@@ -16,9 +17,9 @@ function App() {
                 <Header />
                 <Layout
                     style={{
-                        padding: "0 50px",
-                        marginTop: 64,
-                        marginBottom: 64,
+                        padding: "0 32px",
+                        marginTop: 32,
+                        marginBottom: 32,
                     }}
                 >
                     <Route exact path="/">
@@ -29,6 +30,9 @@ function App() {
                     </Route>
                     <Route exact path="/login">
                         <Login />
+                    </Route>
+                    <Route exact path="/leaderboard">
+                        <Leaderboard />
                     </Route>
                 </Layout>
             </Layout>
