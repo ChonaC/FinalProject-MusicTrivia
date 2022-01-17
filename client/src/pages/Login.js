@@ -11,7 +11,7 @@ const Login = () => {
         },
         wrapperCol: {
             xs: { span: 24 },
-            sm: { span: 16 },
+            sm: { span: 10 },
         },
     };
     const tailFormItemLayout = {
