@@ -2,10 +2,24 @@ import React from "react";
 import { Table, Tag, Space } from "antd";
 
 const Leaderboard = () => {
+    // ! For testing, remove for deployment
+    const dataSource = [];
+
+    for (let i = 0; i < 25; i++) {
+        dataSource.push({
+            key: i,
+            username: "ByteSizeError",
+            score: Math.floor(Math.random() * 101),
+            date: "1/1/2022",
+        });
+    }
+    // ! for testing
+
     const columns = [
-        // todo: add rank
         {
             title: "Rank",
+            // * To get the index of the sorted array for the rank
+            render: (item) => <>{dataSource.indexOf(item) + 1}</>,
         },
         {
             title: "Username",
@@ -23,9 +37,15 @@ const Leaderboard = () => {
             key: "date",
         },
     ];
+
     return (
         <div>
-            <Table columns={columns} />
+            <Table
+                dataSource={dataSource.sort((a, b) =>
+                    a.score < b.score ? 1 : -1
+                )}
+                columns={columns}
+            />
         </div>
     );
 };
