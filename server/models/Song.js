@@ -1,41 +1,24 @@
-const { Model, DataTypes } = require("sequelize");
+const { Schema, model } = require('mongoose');
 
-const sequelize = require("../config/connection");
-
-class Song extends Model {}
-
-Song.init(
+const songSchema = new Schema(
     {
-        // define columns
-        id: {
-            type: DataTypes.INTEGER,
-            allowNull: false,
-            primaryKey: true,
-            autoIncrement: true,
-        },
         song_name: {
-            type: DataTypes.STRING,
-            allowNull: false,
+            type: String,
+            required: 'Please provide a song name',
+            trim: true,
         },
         video_id: {
-            type: DataTypes.STRING,
-            allowNull: false,
+            type: String,
+            required: 'Please provide a video identifier',
+            trim: true,
         },
-        user_id: {
-            type: DataTypes.INTEGER,
-            references: {
-                model: "user",
-                key: "id",
+        user: [
+            {
+              type: Schema.Types.ObjectId,
+              ref: 'User',
             },
-        },
-    },
-    {
-        sequelize,
-        timestamps: false,
-        freezeTableName: true,
-        underscored: true,
-        modelName: "Song",
+          ]
     }
 );
 
-module.exports = Song;
+module.exports = model('Song',songSchema);
