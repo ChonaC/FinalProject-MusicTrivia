@@ -28,5 +28,15 @@ const typeDefs = gql`
     token: ID!
     user: User
   }
+
+  type Query{
+      users:[Users]
+      songs:[Songs]
+      scores:[Scores]
+      user(username: String!): User
+      song(_id:ID!): Song
+      score(_id:ID!): Score
+
+  }
  `;
 module.exports = typeDefs;
