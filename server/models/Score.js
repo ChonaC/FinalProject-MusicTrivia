@@ -1,42 +1,29 @@
-const { Model, DataTypes } = require("sequelize");
-const sequelize = require("../config/connection");
+const { Schema, model } = require('mongoose');
+const dateFormat = require('../utils/dateFormat');
 
-class Score extends Model { }
 
-Score.init(
+const scoreSchema = new Schema(
     {
-        id: {
-            type: DataTypes.INTEGER,
-            allowNull: false,
-            primaryKey: true,
-            autoIncrement: true,
-        },
-        // * Score out of 100% so 1.00 is 100% use decimal easier for percentage
+        
+        
         points: {
-            type: DataTypes.DECIMAL(10, 2),
-            allowNull: false,
+            type: Schema.Types.Decimal128,
+            required: 'Please provide points',
         },
         // * Date the user got this score
         date_created: {
-            type: DataTypes.DATE,
-            allowNull: false,
-            defaultValue: DataTypes.NOW,
+            type: Date,
+            required:'Please provide creation date',
+            default:Date.now,
+            get:(timestamp) => dateFormat(timestamp),
         },
-        user_id: {
-            type: DataTypes.INTEGER,
-            references: {
-                model: "user",
-                key: "id",
+        user: [
+            {
+              type: Schema.Types.ObjectId,
+              ref: 'User',
             },
-        },
-    },
-    {
-        sequelize,
-        timestamps: false,
-        freezeTableName: true,
-        underscored: true,
-        modelName: "score",
+          ]
     }
 );
 
-module.exports = Score;
+module.exports = model(Score,scoreSchema);
