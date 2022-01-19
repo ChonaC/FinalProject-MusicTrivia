@@ -33,10 +33,45 @@ const typeDefs = gql`
       users:[Users]
       songs:[Songs]
       scores:[Scores]
+
       user(username: String!): User
       song(_id:ID!): Song
       score(_id:ID!): Score
 
+      songs(username: String!):[Songs]
+      scores(username: String!):[Scores]
   }
+  type Mutation {
+    addUser(
+        username: String!, 
+        email: String!, 
+        password: String!): Auth
+
+    login(
+        email: String!, 
+        password: String!): Auth
+
+    addSong( 
+        song_name:String!,
+        video_id:String,
+        userName:String
+        ):Song
+
+    addScore( 
+        points:Float!,
+        date_created:Date!,
+        userName:String!
+        ):Score 
+
+    updateScore(
+        _id:ID!,
+        date_created:Date!,
+        userName:String!
+    ):Score 
+    
+    removeSong(_id:ID!):Song
+    removeScore(_id:ID!):Score
+  }
+
  `;
 module.exports = typeDefs;
