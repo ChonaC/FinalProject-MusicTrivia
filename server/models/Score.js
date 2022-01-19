@@ -7,7 +7,7 @@ const scoreSchema = new Schema(
         
         
         points: {
-            type: Schema.Types.Decimal128,
+            type:Decimal,
             required: 'Please provide points',
         },
         // * Date the user got this score
