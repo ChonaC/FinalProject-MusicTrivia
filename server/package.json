@@ -25,6 +25,7 @@
     },
     "homepage": "https://github.com/ChonaC/Project-2-MUSICTRIVIA#readme",
     "dependencies": {
+        "apollo-server-express": "^3.6.2",
         "bcrypt": "^5.0.1",
         "connect-session-sequelize": "^7.1.2",
         "cors": "^2.8.5",
