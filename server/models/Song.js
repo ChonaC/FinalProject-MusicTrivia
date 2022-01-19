@@ -12,12 +12,12 @@ const songSchema = new Schema(
             required: 'Please provide a video identifier',
             trim: true,
         },
-        user: [
+        user: 
             {
               type: Schema.Types.ObjectId,
               ref: 'User',
             },
-          ]
+          
     }
 );
 

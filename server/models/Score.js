@@ -17,12 +17,12 @@ const scoreSchema = new Schema(
             default:Date.now,
             get:(timestamp) => dateFormat(timestamp),
         },
-        user: [
+        user: 
             {
               type: Schema.Types.ObjectId,
               ref: 'User',
             },
-          ]
+          
     }
 );
 
