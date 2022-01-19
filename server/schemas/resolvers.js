@@ -28,6 +28,7 @@ const resolvers = {
 
     },
     Mutation: {
+
         addUser: async (parent, { username, email, password }) => {
           const profile = await User.create({ username, email, password });
           const token = signToken(profile);
@@ -49,8 +50,23 @@ const resolvers = {
       
             const token = signToken(user);
             return { token, user };
-          }
-
+          },
+        
+        addSong: async (parent, { song_name, video_id },context) => {
+            if (context.user) {
+                const song = await Song.create({
+                    song_name,
+                    video_id,
+                    username: context.user.username
+                });
+                await User.findOneAndUpdate(
+                    { _id: context.user._id },
+                    { $addToSet : {song:song._id}}  
+                );
+                return song;
+            }
+            throw new AuthenticationError('You need to be logged in!');
+        },
 
 
     }

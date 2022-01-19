@@ -53,14 +53,12 @@ const typeDefs = gql`
 
     addSong( 
         song_name:String!,
-        video_id:String,
-        userName:String
+        video_id:String!
         ):Song
 
     addScore( 
         points:Float!,
-        date_created:String!,
-        userName:String!
+        date_created:String!
         ):Score 
 
     updateScore(
