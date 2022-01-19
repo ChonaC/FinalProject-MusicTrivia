@@ -48,7 +48,7 @@ const typeDefs = gql`
         password: String!): Auth
 
     login(
-        email: String!, 
+        username: String!, 
         password: String!): Auth
 
     addSong( 

@@ -15,8 +15,8 @@ const resolvers = {
             return Score.find();
         },
 
-        user :async(parent, { userName })=>{
-            return User.findOne({username:userName})
+        user :async(parent, { username })=>{
+            return User.findOne({username:username})
         },
         song: async (parent, { songId }) => {
             return Song.findOne({ _id:songId });
@@ -28,12 +28,30 @@ const resolvers = {
 
     },
     Mutation: {
-        addUser: async (parent, { name, email, password }) => {
-          const profile = await Profile.create({ name, email, password });
+        addUser: async (parent, { username, email, password }) => {
+          const profile = await User.create({ username, email, password });
           const token = signToken(profile);
-    
           return { token, profile };
-        }
+        },
+
+        login: async (parent, { username, password }) => {
+            const user = await User.findOne({ username });
+      
+            if (!user) {
+              throw new AuthenticationError('No profile with this email found!');
+            }
+      
+            const correctPw = await user.isCorrectPassword(password);
+      
+            if (!correctPw) {
+              throw new AuthenticationError('Incorrect password!');
+            }
+      
+            const token = signToken(user);
+            return { token, user };
+          }
+
+
 
     }
 
