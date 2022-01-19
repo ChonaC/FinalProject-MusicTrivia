@@ -24,11 +24,18 @@ const resolvers = {
         score: async (parent, { scoreId }) => {
             return Profile.findOne({ _id: scoreId });
           }
+          
 
+    },
+    Mutation: {
+        addUser: async (parent, { name, email, password }) => {
+          const profile = await Profile.create({ name, email, password });
+          const token = signToken(profile);
+    
+          return { token, profile };
+        }
 
     }
-
-
 
 
 };
