@@ -30,16 +30,16 @@ const typeDefs = gql`
   }
 
   type Query{
-      users:[Users]
-      songs:[Songs]
-      scores:[Scores]
+      users:[User]
+      songs:[Song]
+      scores:[Score]
 
       user(username: String!): User
       song(_id:ID!): Song
       score(_id:ID!): Score
 
-      songs(username: String!):[Songs]
-      scores(username: String!):[Scores]
+      songsofUser(username: String!):[Song]
+      scoresOfUser(username: String!):[Score]
   }
   type Mutation {
     addUser(
@@ -59,16 +59,16 @@ const typeDefs = gql`
 
     addScore( 
         points:Float!,
-        date_created:Date!,
+        date_created:String!,
         userName:String!
         ):Score 
 
     updateScore(
         _id:ID!,
-        date_created:Date!,
+        date_created:String!,
         userName:String!
     ):Score 
-    
+
     removeSong(_id:ID!):Song
     removeScore(_id:ID!):Score
   }

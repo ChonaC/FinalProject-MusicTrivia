@@ -7,7 +7,7 @@ const scoreSchema = new Schema(
         
         
         points: {
-            type:Decimal,
+            type: Schema.Types.Decimal,
             required: 'Please provide points',
         },
         // * Date the user got this score
@@ -27,4 +27,4 @@ const scoreSchema = new Schema(
     }
 );
 
-module.exports = model(Score,scoreSchema);
+module.exports = model('Score',scoreSchema);
