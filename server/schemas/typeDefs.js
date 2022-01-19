@@ -23,6 +23,10 @@ const typeDefs = gql`
     date_created: String
     user: User
   }
-
+  
+  type Auth {
+    token: ID!
+    user: User
+  }
  `;
 module.exports = typeDefs;
