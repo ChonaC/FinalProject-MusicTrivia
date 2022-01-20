@@ -1,5 +1,5 @@
 const { AuthenticationError } = require('apollo-server-express');
-const { Profile, User, Song } = require('../models');
+const { Profile, User, Song, Score } = require('../models');
 const { signToken } = require('../utils/auth');
 const resolvers = {
 
@@ -67,6 +67,27 @@ const resolvers = {
             }
             throw new AuthenticationError('You need to be logged in!');
         },
+
+        addScore: async (parent, { points },context) => {
+            if (context.user) {
+                const score = await Score.create({
+                    points,
+                    username: context.user.username
+                });
+                await User.findOneAndUpdate(
+                    { _id: context.user._id },
+                    { $addToSet : {score:score._id}}  
+                );
+                return score;
+            }
+            throw new AuthenticationError('You need to be logged in!');
+        },
+        removeSong:async(parent,{_id}) =>{
+            return Song.findOneAndDelete({_id:_id});
+        },
+        removeScore:async(parent,{_id}) =>{
+            return Score.findOneAndDelete({_id:_id});
+        }
 
 
     }
