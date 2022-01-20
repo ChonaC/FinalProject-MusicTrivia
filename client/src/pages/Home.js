@@ -47,7 +47,12 @@ const Home = () => {
                     </Select>
                 </Form.Item>
             </Form>
-            <Button type="primary" shape="round" icon={<PlayCircleOutlined />}>
+            <Button
+                type="primary"
+                shape="round"
+                size="large"
+                icon={<PlayCircleOutlined />}
+            >
                 Start Quiz
             </Button>
         </div>
