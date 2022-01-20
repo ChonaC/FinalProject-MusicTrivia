@@ -1,7 +1,13 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { Layout, Menu } from "antd";
-import { HomeOutlined, TrophyOutlined, LoginOutlined } from "@ant-design/icons";
+import { Menu } from "antd";
+import {
+    HomeOutlined,
+    TrophyOutlined,
+    LoginOutlined,
+    UserOutlined,
+    PlusCircleOutlined,
+} from "@ant-design/icons";
 import logo from "../assets/images/music-trivia-logo.png";
 
 const Navbar = () => {
@@ -20,11 +26,18 @@ const Navbar = () => {
                 >
                     <Link to="/">Home</Link>
                 </Menu.Item>
+
+                <Menu.Item key="profile" icon={<UserOutlined />}>
+                    <Link to="/profile">Profile</Link>
+                </Menu.Item>
                 <Menu.Item key="leaderboard" icon={<TrophyOutlined />}>
                     <Link to="/leaderboard">Leaderboard</Link>
                 </Menu.Item>
                 <Menu.Item key="login" icon={<LoginOutlined />}>
-                    <Link to="/login">Login</Link>
+                    <Link to="/login">Log in</Link>
+                </Menu.Item>
+                <Menu.Item key="signup" icon={<PlusCircleOutlined />}>
+                    <Link to="/signup">Sign up</Link>
                 </Menu.Item>
             </Menu>
         </nav>
