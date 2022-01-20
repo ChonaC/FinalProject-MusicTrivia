@@ -1,7 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { Form, Input, Button } from "antd";
+import { Typography, Form, Input, Button } from "antd";
 import { LoginOutlined, UserOutlined, LockOutlined } from "@ant-design/icons";
+const { Title } = Typography;
 
 const Login = () => {
     const formItemLayout = {
@@ -29,6 +30,8 @@ const Login = () => {
 
     return (
         <div className="page">
+            <Title style={{ textAlign: "center" }}>Log in</Title>
+
             <Form {...formItemLayout}>
                 <Form.Item
                     name="username"
@@ -73,9 +76,9 @@ const Login = () => {
                         htmlType="submit"
                         icon={<LoginOutlined />}
                     >
-                        Login
+                        Log in
                     </Button>
-                    &nbsp;Or <Link to="/signup">signup now!</Link>
+                    &nbsp;Or <Link to="/signup">sign up now!</Link>
                 </Form.Item>
             </Form>
         </div>

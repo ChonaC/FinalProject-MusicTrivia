@@ -1,12 +1,13 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { Form, Input, Button } from "antd";
+import { Typography, Form, Input, Button } from "antd";
 import {
     MailOutlined,
     UserAddOutlined,
     UserOutlined,
     LockOutlined,
 } from "@ant-design/icons";
+const { Title } = Typography;
 
 const SignUp = () => {
     const formItemLayout = {
@@ -34,6 +35,7 @@ const SignUp = () => {
 
     return (
         <div className="page">
+            <Title style={{ textAlign: "center" }}>Sign up</Title>
             <Form {...formItemLayout}>
                 <Form.Item
                     name="email"
@@ -138,7 +140,7 @@ const SignUp = () => {
                     >
                         Register
                     </Button>
-                    &nbsp;Or <Link to="/login">login now!</Link>
+                    &nbsp;Or <Link to="/login">log in now!</Link>
                 </Form.Item>
             </Form>
         </div>
