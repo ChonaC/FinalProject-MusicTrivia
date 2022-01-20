@@ -58,13 +58,10 @@ const typeDefs = gql`
 
     addScore( 
         points:Float!,
-        date_created:String!
         ):Score 
 
     updateScore(
-        _id:ID!,
-        date_created:String!,
-        userName:String!
+        points:Float!,
     ):Score 
 
     removeSong(_id:ID!):Song

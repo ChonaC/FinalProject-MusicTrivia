@@ -82,16 +82,30 @@ const resolvers = {
             }
             throw new AuthenticationError('You need to be logged in!');
         },
-        removeSong:async(parent,{_id}) =>{
+        removeSong:async(parent,{_id},context) =>{
+            if(context.user){
             return Song.findOneAndDelete({_id:_id});
+            }
+            throw new AuthenticationError('You need to be logged in!');
         },
-        removeScore:async(parent,{_id}) =>{
+        removeScore:async(parent,{_id},context) =>{
+            if(context.user){
             return Score.findOneAndDelete({_id:_id});
+            }
+            throw new AuthenticationError('You need to be logged in!');
+        },
+        updateScore: async(parent,{_id,points},context) =>{
+            if(context.user){
+                return await Score.findOneAndUpdate(
+                    { _id: _id }, 
+                    { points },
+                    // Return the newly updated object instead of the original
+                    { new: true }
+                  );
+            }throw new AuthenticationError('You need to be logged in!');
         }
-
-
+ 
     }
-
 
 };
 module.exports = resolvers;
