@@ -19,7 +19,7 @@ const typeDefs = gql`
 
   type Score {
     _id: ID
-    points: Float
+    points: Float!
     date_created: String
     user: User
   }

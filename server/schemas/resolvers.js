@@ -28,7 +28,9 @@ const resolvers = {
             return Song.find({username:username});
           },
           scoresOfUser: async (parent,{username}) =>{
-            return Score.find({username:username});
+            const score = await Score.find({username:username} )
+              
+            return score;
           }  
 
     },
@@ -58,6 +60,8 @@ const resolvers = {
           },
         
         addSong: async (parent, { song_name, video_id },context) => {
+
+            console.log('context',context);
             if (context.user) {
                 const song = await Song.create({
                     song_name,
