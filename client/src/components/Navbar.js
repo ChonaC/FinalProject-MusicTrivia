@@ -4,7 +4,7 @@ import { Layout, Menu } from "antd";
 import { HomeOutlined, TrophyOutlined, LoginOutlined } from "@ant-design/icons";
 import logo from "../assets/images/music-trivia-logo.png";
 
-const Header = () => {
+const Navbar = () => {
     return (
         <nav>
             <Menu mode="horizontal">
@@ -31,4 +31,4 @@ const Header = () => {
     );
 };
 
-export default Header;
+export default Navbar;

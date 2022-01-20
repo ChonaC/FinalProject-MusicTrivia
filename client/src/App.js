@@ -3,7 +3,7 @@ import "./App.css";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 
 import { Layout } from "antd";
-import Header from "./components/Header";
+import Navbar from "./components/Navbar";
 import Home from "./pages/Home";
 import Quiz from "./pages/Quiz";
 import SignUp from "./pages/SignUp";
@@ -14,7 +14,7 @@ function App() {
     return (
         <Router>
             <Layout style={{ height: "100vh" }}>
-                <Header />
+                <Navbar />
                 <Layout
                     style={{
                         padding: "0 32px",
