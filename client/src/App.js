@@ -1,11 +1,11 @@
 import React from "react";
-import "antd/dist/antd.css";
 import "./App.css";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 
 import { Layout } from "antd";
 import Header from "./components/Header";
 import Home from "./pages/Home";
+import Quiz from "./pages/Quiz";
 import SignUp from "./pages/SignUp";
 import Login from "./pages/Login";
 import Leaderboard from "./pages/Leaderboard";
@@ -24,6 +24,9 @@ function App() {
                 >
                     <Route exact path="/">
                         <Home />
+                    </Route>
+                    <Route exact path="/quiz">
+                        <Quiz />
                     </Route>
                     <Route exact path="/signup">
                         <SignUp />
