@@ -1,7 +1,10 @@
 import React from "react";
-import { Form, Select, Button } from "antd";
+import { Typography, Form, Select, Button } from "antd";
 import { PlayCircleOutlined } from "@ant-design/icons";
+import logo from "../assets/images/music-trivia-logo.png";
+
 const { Option } = Select;
+const { Title } = Typography;
 
 const Home = () => {
     const formItemLayout = {
@@ -31,6 +34,13 @@ const Home = () => {
                 textAlign: "center",
             }}
         >
+            <img
+                src={logo}
+                alt=""
+                style={{ width: "50vh", maxWidth: "70vw" }}
+            />
+            <Title>Music Trivia</Title>
+
             <p>Guess the name of each song.</p>
             <Form {...formItemLayout}>
                 <Form.Item
