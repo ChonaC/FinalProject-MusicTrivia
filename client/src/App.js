@@ -9,11 +9,12 @@ import Quiz from "./pages/Quiz";
 import SignUp from "./pages/SignUp";
 import Login from "./pages/Login";
 import Leaderboard from "./pages/Leaderboard";
+import Profile from "./pages/Profile";
 
 function App() {
     return (
         <Router>
-            <Layout style={{ height: "100vh" }}>
+            <Layout style={{ minHeight: "100vh" }}>
                 <Navbar />
                 <Layout
                     style={{
@@ -36,6 +37,9 @@ function App() {
                     </Route>
                     <Route exact path="/leaderboard">
                         <Leaderboard />
+                    </Route>
+                    <Route exact path="/profile">
+                        <Profile />
                     </Route>
                 </Layout>
             </Layout>
