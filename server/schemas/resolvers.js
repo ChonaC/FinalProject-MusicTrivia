@@ -23,8 +23,13 @@ const resolvers = {
           },
         score: async (parent, { scoreId }) => {
             return Profile.findOne({ _id: scoreId });
-          }
-          
+          },
+          songsofUser: async (parent,{username}) =>{
+            return Song.find({username:username});
+          },
+          scoresOfUser: async (parent,{username}) =>{
+            return Score.find({username:username});
+          }  
 
     },
     Mutation: {
@@ -102,7 +107,8 @@ const resolvers = {
                     // Return the newly updated object instead of the original
                     { new: true }
                   );
-            }throw new AuthenticationError('You need to be logged in!');
+            }
+            throw new AuthenticationError('You need to be logged in!');
         }
  
     }

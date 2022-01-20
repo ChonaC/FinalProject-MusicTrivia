@@ -61,6 +61,7 @@ const typeDefs = gql`
         ):Score 
 
     updateScore(
+        _id:ID!,
         points:Float!,
     ):Score 
 
