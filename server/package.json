@@ -1,0 +1,41 @@
+{
+    "name": "project-2-musictrivia",
+    "version": "1.0.0",
+    "description": "",
+    "main": "server.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "start": "node server.js",
+        "watch": "nodemon server.js"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/ChonaC/Project-2-MUSICTRIVIA.git"
+    },
+    "author": "",
+    "license": "MIT",
+    "devDependencies": {
+        "eslint": "^7.12.1",
+        "eslint-config-prettier": "^6.15.0",
+        "nodemon": "^2.0.3",
+        "prettier": "^2.1.2"
+    },
+    "bugs": {
+        "url": "https://github.com/ChonaC/Project-2-MUSICTRIVIA/issues"
+    },
+    "homepage": "https://github.com/ChonaC/Project-2-MUSICTRIVIA#readme",
+    "dependencies": {
+        "apollo-server-express": "^2.12.0",
+        "bcrypt": "^5.0.1",
+        "connect-session-sequelize": "^7.1.2",
+        "cors": "^2.8.5",
+        "dotenv": "^10.0.0",
+        "express": "^4.17.1",
+        "express-handlebars": "^5.3.4",
+        "express-session": "^1.17.2",
+        "jsonwebtoken": "^8.5.1",
+        "mongoose": "^6.1.7",
+        "mysql2": "^2.3.3-rc.0",
+        "sequelize": "^6.9.0"
+    }
+}
