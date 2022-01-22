@@ -4,7 +4,7 @@ import { useMutation } from "@apollo/client";
 import Auth from "../utils/auth";
 import { LOGIN } from "../utils/mutations";
 
-import { Typography, Form, Input, Button } from "antd";
+import { Typography, Form, Input, Button, message } from "antd";
 import { LoginOutlined, UserOutlined, LockOutlined } from "@ant-design/icons";
 const { Title } = Typography;
 
@@ -30,6 +30,7 @@ const Login = () => {
             Auth.login(token);
         } catch (e) {
             console.log(e);
+            message.error(e.message);
         }
     };
 
