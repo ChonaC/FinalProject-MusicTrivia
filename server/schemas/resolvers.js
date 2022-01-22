@@ -42,7 +42,22 @@ const resolvers = {
     },
     Mutation: {
         addUser: async (parent, { username, email, password }) => {
+            const userByUsername = await User.findOne({ username });
+            const userByEmail = await User.findOne({ email });
+
+            if (userByUsername) {
+                throw new AuthenticationError(
+                    "Profile with this username exists!"
+                );
+            }
+            if (userByEmail) {
+                throw new AuthenticationError(
+                    "Profile with this email exists!"
+                );
+            }
+
             const profile = await User.create({ username, email, password });
+
             const token = signToken(profile);
             return { token, profile };
         },
