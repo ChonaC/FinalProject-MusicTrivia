@@ -1,5 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { useMutation } from "@apollo/client";
+import Auth from "../utils/auth";
+import { ADD_USER } from "../utils/mutations";
+
 import { Typography, Form, Input, Button } from "antd";
 import {
     MailOutlined,
@@ -10,6 +14,36 @@ import {
 const { Title } = Typography;
 
 const SignUp = () => {
+    const [formState, setFormState] = useState({
+        email: "",
+        password: "",
+        username: "",
+    });
+
+    const [addUser] = useMutation(ADD_USER);
+
+    const handleFormSubmit = async (event) => {
+        console.log(formState);
+        // event.preventDefault();
+        const mutationResponse = await addUser({
+            variables: {
+                email: formState.email,
+                password: formState.password,
+                username: formState.username,
+            },
+        });
+        const token = mutationResponse.data.addUser.token;
+        Auth.login(token);
+    };
+
+    const handleChange = (event) => {
+        const { name, value } = event.target;
+        setFormState({
+            ...formState,
+            [name]: value,
+        });
+    };
+
     const formItemLayout = {
         labelCol: {
             xs: { span: 24 },
@@ -36,7 +70,28 @@ const SignUp = () => {
     return (
         <div className="page">
             <Title style={{ textAlign: "center" }}>Sign up</Title>
-            <Form {...formItemLayout}>
+            <Form {...formItemLayout} onFinish={handleFormSubmit}>
+                <Form.Item
+                    name="username"
+                    label="Username"
+                    hasFeedback
+                    tooltip="How others will see you on the leaderboard."
+                    rules={[
+                        {
+                            required: true,
+                            message: "Please input your username!",
+                        },
+                    ]}
+                >
+                    <Input
+                        prefix={
+                            <UserOutlined className="site-form-item-icon" />
+                        }
+                        placeholder="Username"
+                        name="username"
+                        onChange={handleChange}
+                    />
+                </Form.Item>
                 <Form.Item
                     name="email"
                     label="Email"
@@ -57,25 +112,8 @@ const SignUp = () => {
                             <MailOutlined className="site-form-item-icon" />
                         }
                         placeholder="Email"
-                    />
-                </Form.Item>
-                <Form.Item
-                    name="username"
-                    label="Username"
-                    hasFeedback
-                    tooltip="How others will see you on the leaderboard."
-                    rules={[
-                        {
-                            required: true,
-                            message: "Please input your username!",
-                        },
-                    ]}
-                >
-                    <Input
-                        prefix={
-                            <UserOutlined className="site-form-item-icon" />
-                        }
-                        placeholder="Username"
+                        name="email"
+                        onChange={handleChange}
                     />
                 </Form.Item>
                 <Form.Item
@@ -94,7 +132,9 @@ const SignUp = () => {
                             <LockOutlined className="site-form-item-icon" />
                         }
                         type="password"
+                        name="password"
                         placeholder="••••••••••"
+                        onChange={handleChange}
                     />
                 </Form.Item>
                 <Form.Item
