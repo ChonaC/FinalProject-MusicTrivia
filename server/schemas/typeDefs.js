@@ -34,7 +34,9 @@ const typeDefs = gql`
         songs: [Song]
         scores: [Score]
 
-        user(username: String!): User
+        user: User
+
+        userByUsername(username: String!): User
         song(_id: ID!): Song
         score(_id: ID!): Score
 
@@ -44,12 +46,11 @@ const typeDefs = gql`
     type Mutation {
         addUser(username: String!, email: String!, password: String!): Auth
 
-        login(username: String!, password: String!): Auth
+        login(username: String!, email: String!, password: String!): Auth
 
         addSong(song_name: String!, video_id: String!): Song
 
         addScore(points: Float!): Score
-
         updateScore(_id: ID!, points: Float!): Score
 
         removeSong(_id: ID!): Song
