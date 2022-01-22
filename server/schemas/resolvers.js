@@ -1,6 +1,7 @@
 const { AuthenticationError } = require("apollo-server-express");
 const { Profile, User, Song, Score } = require("../models");
 const { signToken } = require("../utils/auth");
+
 const resolvers = {
     Query: {
         users: async () => {
@@ -13,9 +14,19 @@ const resolvers = {
             return Score.find();
         },
 
-        user: async (parent, { username }) => {
+        user: async (parent, args, context) => {
+            if (context.user) {
+                const user = await User.findById(context.user._id);
+                return user;
+            }
+
+            throw new AuthenticationError("Not logged in");
+        },
+
+        userByUsername: async (parent, { username }) => {
             return User.findOne({ username: username });
         },
+
         song: async (parent, { songId }) => {
             return Song.findOne({ _id: songId });
         },
@@ -36,12 +47,15 @@ const resolvers = {
             return { token, profile };
         },
 
-        login: async (parent, { username, password }) => {
-            const user = await User.findOne({ username });
+        login: async (parent, { username, email, password }) => {
+            const userByUsername = await User.findOne({ username });
+            const userByEmail = await User.findOne({ email });
+
+            const user = userByUsername || userByEmail;
 
             if (!user) {
                 throw new AuthenticationError(
-                    "No profile with this email found!"
+                    "No profile with this username/email found!"
                 );
             }
 
