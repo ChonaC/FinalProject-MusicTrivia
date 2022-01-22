@@ -29,7 +29,7 @@ const Navbar = () => {
             <Menu mode="horizontal">
                 <Menu.Item key="logo">
                     <Link to="/">
-                        <img src={logo} alt="" width="80" height="48" />
+                        <img src={logo} alt="" width="50" height="50" />
                     </Link>
                 </Menu.Item>
                 <Menu.Item
