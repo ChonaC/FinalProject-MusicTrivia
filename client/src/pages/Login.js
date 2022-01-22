@@ -1,10 +1,46 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { useMutation } from "@apollo/client";
+import Auth from "../utils/auth";
+import { LOGIN } from "../utils/mutations";
+
 import { Typography, Form, Input, Button } from "antd";
 import { LoginOutlined, UserOutlined, LockOutlined } from "@ant-design/icons";
 const { Title } = Typography;
 
 const Login = () => {
+    const [formState, setFormState] = useState({
+        username: "",
+        password: "",
+    });
+
+    const [login, { error }] = useMutation(LOGIN);
+
+    const handleFormSubmit = async (event) => {
+        // event.preventDefault();
+        try {
+            const mutationResponse = await login({
+                variables: {
+                    username: formState.username,
+                    password: formState.password,
+                    email: formState.username,
+                },
+            });
+            const token = mutationResponse.data.login.token;
+            Auth.login(token);
+        } catch (e) {
+            console.log(e);
+        }
+    };
+
+    const handleChange = (event) => {
+        const { name, value } = event.target;
+        setFormState({
+            ...formState,
+            [name]: value,
+        });
+    };
+
     const formItemLayout = {
         labelCol: {
             xs: { span: 24 },
@@ -32,7 +68,7 @@ const Login = () => {
         <div className="page">
             <Title style={{ textAlign: "center" }}>Log in</Title>
 
-            <Form {...formItemLayout}>
+            <Form {...formItemLayout} onFinish={handleFormSubmit}>
                 <Form.Item
                     name="username"
                     label="Username/Email"
@@ -49,6 +85,8 @@ const Login = () => {
                             <UserOutlined className="site-form-item-icon" />
                         }
                         placeholder="Username/Email"
+                        name="username"
+                        onChange={handleChange}
                     />
                 </Form.Item>
                 <Form.Item
@@ -67,7 +105,9 @@ const Login = () => {
                             <LockOutlined className="site-form-item-icon" />
                         }
                         type="password"
+                        name="password"
                         placeholder="••••••••••"
+                        onChange={handleChange}
                     />
                 </Form.Item>
                 <Form.Item {...tailFormItemLayout}>
