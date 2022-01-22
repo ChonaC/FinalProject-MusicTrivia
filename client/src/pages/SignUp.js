@@ -4,7 +4,7 @@ import { useMutation } from "@apollo/client";
 import Auth from "../utils/auth";
 import { ADD_USER } from "../utils/mutations";
 
-import { Typography, Form, Input, Button } from "antd";
+import { Typography, Form, Input, Button, message } from "antd";
 import {
     MailOutlined,
     UserAddOutlined,
@@ -23,17 +23,21 @@ const SignUp = () => {
     const [addUser] = useMutation(ADD_USER);
 
     const handleFormSubmit = async (event) => {
-        console.log(formState);
         // event.preventDefault();
-        const mutationResponse = await addUser({
-            variables: {
-                email: formState.email,
-                password: formState.password,
-                username: formState.username,
-            },
-        });
-        const token = mutationResponse.data.addUser.token;
-        Auth.login(token);
+        try {
+            const mutationResponse = await addUser({
+                variables: {
+                    email: formState.email,
+                    password: formState.password,
+                    username: formState.username,
+                },
+            });
+            const token = mutationResponse.data.addUser.token;
+            Auth.login(token);
+        } catch (e) {
+            console.log(e);
+            message.error(e.message);
+        }
     };
 
     const handleChange = (event) => {
@@ -123,6 +127,10 @@ const SignUp = () => {
                         {
                             required: true,
                             message: "Please input your password!",
+                        },
+                        {
+                            min: 8,
+                            message: "Password must be at least 8 characters",
                         },
                     ]}
                     hasFeedback
