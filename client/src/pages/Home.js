@@ -1,4 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
+
 import { Typography, Form, Select, Button } from "antd";
 import { PlayCircleOutlined } from "@ant-design/icons";
 import logo from "../assets/images/music-trivia-logo.png";
@@ -7,6 +9,8 @@ const { Option } = Select;
 const { Title } = Typography;
 
 const Home = () => {
+    const [questions, setQuestions] = useState(5);
+
     const formItemLayout = {
         labelCol: {
             xs: {
@@ -48,7 +52,10 @@ const Home = () => {
                     label="Quiz Length"
                     rules={[{ required: true }]}
                 >
-                    <Select placeholder="Select the length of the quiz">
+                    <Select
+                        onChange={(value) => setQuestions(value)}
+                        placeholder="5 songs"
+                    >
                         <Option value="5">5 songs</Option>
                         <Option value="10">10 songs</Option>
                         <Option value="15">15 songs</Option>
@@ -57,14 +64,15 @@ const Home = () => {
                     </Select>
                 </Form.Item>
             </Form>
-            <Button
-                type="primary"
-                shape="round"
-                size="large"
-                icon={<PlayCircleOutlined />}
-            >
-                Start Quiz
-            </Button>
+
+            <Link to={`/quiz?length=${questions}`}>
+                <Button
+                    type="primary"
+                    shape="round"
+                    size="large"
+                    icon={<PlayCircleOutlined />}
+                ></Button>
+            </Link>
         </div>
     );
 };
