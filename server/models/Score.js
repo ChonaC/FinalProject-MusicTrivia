@@ -11,6 +11,11 @@ const scoreSchema = new Schema({
         type: String,
         required: "Please provide username",
     },
+    tags: [
+        {
+            type: String,
+        },
+    ],
     date_created: {
         type: Date,
         required: "Please provide creation date",

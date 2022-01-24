@@ -100,11 +100,12 @@ const resolvers = {
             throw new AuthenticationError("You need to be logged in!");
         },
 
-        addScore: async (parent, { points }, context) => {
+        addScore: async (parent, { points, tags }, context) => {
             if (context.user) {
                 const score = await Score.create({
                     points,
                     username: context.user.username,
+                    tags,
                 });
                 await User.findOneAndUpdate(
                     { _id: context.user._id },

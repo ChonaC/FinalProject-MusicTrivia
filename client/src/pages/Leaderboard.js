@@ -30,7 +30,29 @@ const Leaderboard = () => {
             align: "center",
             // ellipsis: true,
         },
-
+        {
+            title: "Tags",
+            key: "tags",
+            dataIndex: "tags",
+            render: (tags) => (
+                <>
+                    {tags.map((tag) => {
+                        let color = "green";
+                        if (tag === "5") {
+                            color = "blue";
+                        }
+                        if (tag === "10") {
+                            color = "red";
+                        }
+                        return (
+                            <Tag color={color} key={tag}>
+                                {tag.toUpperCase()}
+                            </Tag>
+                        );
+                    })}
+                </>
+            ),
+        },
         {
             title: "Date",
             dataIndex: "date_created",

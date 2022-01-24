@@ -3,6 +3,7 @@ import { gql } from "@apollo/client";
 export const QUERY_USER = gql`
     query user {
         user {
+            key: _id
             username
             email
             songs {
@@ -23,6 +24,7 @@ export const GET_SCORES = gql`
             username
             points
             date_created
+            tags
         }
     }
 `;
