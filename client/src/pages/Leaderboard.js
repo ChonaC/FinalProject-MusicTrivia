@@ -34,15 +34,21 @@ const Leaderboard = () => {
             title: "Tags",
             key: "tags",
             dataIndex: "tags",
+
             render: (tags) => (
                 <>
                     {tags.map((tag) => {
-                        let color = "green";
+                        let color = "blue";
                         if (tag === "5") {
-                            color = "blue";
-                        }
-                        if (tag === "10") {
+                            color = "green";
+                        } else if (tag === "10") {
+                            color = "gold";
+                        } else if (tag === "15") {
+                            color = "volcano";
+                        } else if (tag === "20") {
                             color = "red";
+                        } else {
+                            color = "blue";
                         }
                         return (
                             <Tag color={color} key={tag}>
