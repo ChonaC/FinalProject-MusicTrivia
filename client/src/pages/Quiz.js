@@ -5,6 +5,9 @@ import ProgressBar from "../components/ProgressBar";
 import Question from "../components/Question";
 import { searchArtist } from "../utils/API";
 
+import { useMutation } from "@apollo/client";
+import { ADD_SCORE } from "../utils/mutations";
+
 import { Typography, Statistic, Result, Button, Space } from "antd";
 import { TrophyOutlined } from "@ant-design/icons";
 const { Title, Paragraph } = Typography;
@@ -15,6 +18,7 @@ function useQuery() {
 }
 
 const Quiz = () => {
+    const [gameOver, setGameOver] = useState(false);
     const length = useQuery().get("length");
     const artistName = useQuery().get("artist");
 
@@ -102,14 +106,35 @@ const Quiz = () => {
         setChoices(choices);
     };
 
+    const [addScore, { error }] = useMutation(ADD_SCORE);
+
+    const handleAddScore = async () => {
+        try {
+            await addScore({
+                variables: {
+                    points: Math.round((correct / length) * 100),
+                },
+            });
+        } catch (e) {
+            console.log(e);
+        }
+    };
+
     if (completed >= length) {
         console.log("GAME OVER");
+        setGameOver(true);
+        setCompleted(0);
+        handleAddScore();
     }
 
     return (
         <div className="page">
-            <ProgressBar completed={completed} length={length} />
-            {completed >= length ? (
+            <ProgressBar
+                completed={completed}
+                length={length}
+                gameOver={gameOver}
+            />
+            {gameOver ? (
                 <Result
                     icon={<TrophyOutlined />}
                     title={
