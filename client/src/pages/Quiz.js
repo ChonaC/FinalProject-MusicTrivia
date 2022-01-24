@@ -3,7 +3,6 @@ import { Link, useLocation } from "react-router-dom";
 
 import ProgressBar from "../components/ProgressBar";
 import Question from "../components/Question";
-import { getLyrics, getSong } from "genius-lyrics-api";
 import { searchArtist } from "../utils/API";
 
 import { Typography, Statistic, Result, Button, Space } from "antd";
@@ -23,7 +22,7 @@ const Quiz = () => {
     const [correct, setCorrect] = useState(0);
     console.log(completed, length);
 
-    const [songTitle, setSongTitle] = useState("Song Title");
+    const [songTitle, setSongTitle] = useState("");
     const [songImage, setSongImage] = useState("");
     const [allSongs, setAllSongs] = useState([]);
 
@@ -44,7 +43,11 @@ const Quiz = () => {
             setAllSongs(songs);
             console.log(songs);
 
-            const random = Math.floor(Math.random() * 10);
+            let random = Math.floor(Math.random() * 10);
+            do {
+                random = Math.floor(Math.random() * 10);
+            } while (songs[random] === undefined);
+
             const targetSong = songs[random].title;
             const targetImage = songs[random].image;
 
@@ -76,7 +79,10 @@ const Quiz = () => {
 
     const newQuestion = () => {
         console.log("songs", allSongs);
-        const random = Math.floor(Math.random() * 10);
+        let random = Math.floor(Math.random() * 10);
+        // do {
+        //     random = Math.floor(Math.random() * 10);
+        // } while (allSongs[random] === undefined);
         const targetSong = allSongs[random].title;
         const targetImage = allSongs[random].image;
 
