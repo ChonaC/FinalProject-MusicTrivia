@@ -21,3 +21,11 @@ export const ADD_USER = gql`
         }
     }
 `;
+
+export const ADD_SCORE = gql`
+    mutation addScore($points: Int!) {
+        addScore(points: $points) {
+            points
+        }
+    }
+`;
