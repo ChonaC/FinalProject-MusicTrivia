@@ -116,8 +116,8 @@ const Quiz = () => {
         try {
             await addScore({
                 variables: {
-                    points: Math.round((correct / length) * 100),
-                    tags: [artistName, length],
+                    points: Math.round(correct * 100),
+                    tags: [length, artistName],
                 },
             });
         } catch (e) {
@@ -150,6 +150,9 @@ const Quiz = () => {
                         />
                     }
                     extra={[
+                        <Title level={4} italic={true}>
+                            {correct} correct x 100 = {correct * 100} pts
+                        </Title>,
                         <Link to="/">
                             <Button type="primary">Play again</Button>
                         </Link>,
