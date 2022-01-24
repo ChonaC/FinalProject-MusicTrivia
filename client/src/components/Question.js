@@ -1,5 +1,4 @@
 import React from "react";
-import ReactPlayer from "react-player";
 
 import { Typography, Button, Image } from "antd";
 const { Title, Paragraph } = Typography;
@@ -18,49 +17,22 @@ const Question = (props) => {
     return (
         <div style={{ textAlign: "center" }}>
             <Image
-                style={{ marginTop: 20, height: 300, width: 300 }}
+                style={{ marginTop: 20 }}
+                preview={false}
                 src={props.songImage}
             />
-            <Button
-                type="primary"
-                block
-                style={{ marginTop: 20, height: 40 }}
-                onClick={handleQuestion}
-            >
-                <Title level={5} style={{ color: "white" }}>
-                    {props.choices[0]}
-                </Title>
-            </Button>
-            <Button
-                type="primary"
-                block
-                style={{ marginTop: 20, height: 40 }}
-                onClick={handleQuestion}
-            >
-                <Title level={5} style={{ color: "white" }}>
-                    {props.choices[1]}
-                </Title>
-            </Button>
-            <Button
-                type="primary"
-                block
-                style={{ marginTop: 20, height: 40 }}
-                onClick={handleQuestion}
-            >
-                <Title level={5} style={{ color: "white" }}>
-                    {props.choices[2]}
-                </Title>
-            </Button>
-            <Button
-                type="primary"
-                block
-                style={{ marginTop: 20, height: 40 }}
-                onClick={handleQuestion}
-            >
-                <Title level={5} style={{ color: "white" }}>
-                    {props.choices[3]}
-                </Title>
-            </Button>
+            {props.choices.map((title) => (
+                <Button
+                    type="primary"
+                    block
+                    style={{ marginTop: 20, height: 40 }}
+                    onClick={handleQuestion}
+                >
+                    <Title level={5} style={{ color: "white" }} ellipsis>
+                        {title}
+                    </Title>
+                </Button>
+            ))}
         </div>
     );
 };
