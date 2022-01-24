@@ -3,10 +3,14 @@ const dateFormat = require("../utils/dateFormat");
 
 const scoreSchema = new Schema({
     points: {
-        type: Schema.Types.Decimal,
+        type: Number,
         required: "Please provide points",
     },
     // * Date the user got this score
+    username: {
+        type: String,
+        required: "Please provide username",
+    },
     date_created: {
         type: Date,
         required: "Please provide creation date",
