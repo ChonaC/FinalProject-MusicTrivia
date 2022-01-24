@@ -1,33 +1,19 @@
 import React from "react";
 import { Table, Tag, Space } from "antd";
+import { useQuery } from "@apollo/client";
+
+import { GET_SCORES } from "../utils/queries";
 
 const Leaderboard = () => {
     // ! For testing, remove for deployment
-    const dataSource = [];
-    const randomDate = (start, end) => {
-        return new Date(
-            start.getTime() + Math.random() * (end.getTime() - start.getTime())
-        );
-    };
+    let { data } = useQuery(GET_SCORES);
+    let dataSource = [];
 
-    for (let i = 0; i < 250; i++) {
-        let date = randomDate(new Date(2020, 0, 1), new Date());
-        dataSource.push({
-            key: i,
-            username: "ByteSizeErrorLong",
-            score: Math.floor(Math.random() * 101),
-            date:
-                (date.getMonth() > 8
-                    ? date.getMonth() + 1
-                    : "0" + (date.getMonth() + 1)) +
-                "/" +
-                (date.getDate() > 9 ? date.getDate() : "0" + date.getDate()) +
-                "/" +
-                date.getFullYear(),
-        });
+    if (data) {
+        let needSort = [...data.scores];
+        dataSource = needSort.sort((a, b) => (a.points < b.points ? 1 : -1));
+        console.log(dataSource);
     }
-    // ! for testing
-    console.log(dataSource);
 
     const columns = [
         {
@@ -47,28 +33,22 @@ const Leaderboard = () => {
 
         {
             title: "Date",
-            dataIndex: "date",
+            dataIndex: "date_created",
             key: "date",
             align: "right",
             // width: 93,
         },
         {
             title: "Score",
-            dataIndex: "score",
+            dataIndex: "points",
             key: "score",
             align: "right",
             // width: 80,
         },
     ];
-
     return (
         <div>
-            <Table
-                dataSource={dataSource.sort((a, b) =>
-                    a.score < b.score ? 1 : -1
-                )}
-                columns={columns}
-            />
+            <Table dataSource={dataSource} columns={columns} />
         </div>
     );
 };
