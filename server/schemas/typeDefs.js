@@ -19,9 +19,9 @@ const typeDefs = gql`
 
     type Score {
         _id: ID
-        points: Float
+        points: Int
         date_created: String
-        user: User
+        username: String
     }
 
     type Auth {
@@ -50,7 +50,7 @@ const typeDefs = gql`
 
         addSong(song_name: String!, video_id: String!): Song
 
-        addScore(points: Float!): Score
+        addScore(points: Int!): Score
         updateScore(_id: ID!, points: Float!): Score
 
         removeSong(_id: ID!): Song
