@@ -79,6 +79,8 @@ const Home = () => {
                     >
                         <Option value="5">5 songs</Option>
                         <Option value="10">10 songs</Option>
+                        <Option value="15">15 songs</Option>
+                        <Option value="20">20 songs</Option>
                     </Select>
                 </Form.Item>
                 <Form.Item
