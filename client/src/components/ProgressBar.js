@@ -4,12 +4,12 @@ import { Progress } from "antd";
 const ProgressBar = (props) => {
     return (
         <Progress
-            percent={Math.round((props.completed / props.length) * 100)}
-            status={
-                Math.round((props.completed / props.length) * 100) === 100
-                    ? "success"
-                    : "active"
+            percent={
+                props.gameOver === true
+                    ? 100
+                    : Math.round((props.completed / props.length) * 100)
             }
+            status={props.gameOver === true ? "success" : "active"}
         />
     );
 };
