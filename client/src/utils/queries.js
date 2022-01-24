@@ -1,7 +1,7 @@
 import { gql } from "@apollo/client";
 
 export const QUERY_USER = gql`
-    {
+    query user {
         user {
             username
             email
@@ -12,6 +12,17 @@ export const QUERY_USER = gql`
                 points
                 date_created
             }
+        }
+    }
+`;
+
+export const GET_SCORES = gql`
+    query scores {
+        scores {
+            key: _id
+            username
+            points
+            date_created
         }
     }
 `;
