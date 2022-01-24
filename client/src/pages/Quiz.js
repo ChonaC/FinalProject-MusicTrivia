@@ -7,6 +7,7 @@ import { searchArtist } from "../utils/API";
 
 import { useMutation } from "@apollo/client";
 import { ADD_SCORE } from "../utils/mutations";
+import { GET_SCORES } from "../utils/queries";
 
 import { Typography, Statistic, Result, Button, Space } from "antd";
 import { TrophyOutlined } from "@ant-design/icons";
@@ -39,6 +40,7 @@ const Quiz = () => {
             const hits = data.response.hits;
             for (let i = 0; i < hits.length; i++) {
                 let song = {
+                    key: i,
                     title: hits[i].result.title,
                     image: hits[i].result.song_art_image_thumbnail_url,
                 };
@@ -106,13 +108,16 @@ const Quiz = () => {
         setChoices(choices);
     };
 
-    const [addScore, { error }] = useMutation(ADD_SCORE);
+    const [addScore, { error }] = useMutation(ADD_SCORE, {
+        refetchQueries: [{ query: GET_SCORES }],
+    });
 
     const handleAddScore = async () => {
         try {
             await addScore({
                 variables: {
                     points: Math.round((correct / length) * 100),
+                    tags: [artistName, length],
                 },
             });
         } catch (e) {
