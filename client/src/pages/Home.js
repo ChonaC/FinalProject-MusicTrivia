@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 
-import { Typography, Form, Select, Button } from "antd";
+import { Typography, Form, Input, Select, Button } from "antd";
 import { PlayCircleOutlined } from "@ant-design/icons";
 import logo from "../assets/images/music-trivia-logo.png";
 
@@ -10,6 +10,7 @@ const { Title } = Typography;
 
 const Home = () => {
     const [questions, setQuestions] = useState(5);
+    const [artist, setArtist] = useState("");
 
     const formItemLayout = {
         labelCol: {
@@ -30,6 +31,16 @@ const Home = () => {
         },
     };
 
+    const history = useHistory();
+
+    const handleFormSubmit = (event) => {
+        history.push(`/quiz?length=${questions}&artist=${artist}`);
+    };
+
+    const handleChange = (event) => {
+        setArtist(event.target.value);
+    };
+
     return (
         <div
             id="start-page"
@@ -46,33 +57,38 @@ const Home = () => {
             <Title>Music Trivia</Title>
 
             <p>Guess the name of each song.</p>
-            <Form {...formItemLayout}>
-                <Form.Item
-                    name="quiz-length"
-                    label="Quiz Length"
-                    rules={[{ required: true }]}
-                >
+            <Form {...formItemLayout} onFinish={handleFormSubmit}>
+                <Form.Item name="quiz-length" label="Quiz Length">
                     <Select
                         onChange={(value) => setQuestions(value)}
                         placeholder="5 songs"
                     >
                         <Option value="5">5 songs</Option>
                         <Option value="10">10 songs</Option>
-                        <Option value="15">15 songs</Option>
-                        <Option value="20">20 songs</Option>
-                        <Option value="25">25 songs</Option>
                     </Select>
                 </Form.Item>
+                <Form.Item
+                    name="artist"
+                    label="Artist"
+                    rules={[
+                        {
+                            required: true,
+                            message: "Please input artist name!",
+                        },
+                    ]}
+                >
+                    <Input onChange={handleChange} />
+                </Form.Item>
+                <Form.Item>
+                    <Button
+                        type="primary"
+                        shape="round"
+                        htmlType="submit"
+                        size="large"
+                        icon={<PlayCircleOutlined />}
+                    ></Button>
+                </Form.Item>
             </Form>
-
-            <Link to={`/quiz?length=${questions}`}>
-                <Button
-                    type="primary"
-                    shape="round"
-                    size="large"
-                    icon={<PlayCircleOutlined />}
-                ></Button>
-            </Link>
         </div>
     );
 };
