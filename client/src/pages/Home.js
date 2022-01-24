@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 
-import { Typography, Form, Input, Select, Button } from "antd";
+import { Typography, Form, Input, Select, Button, message } from "antd";
 import { PlayCircleOutlined } from "@ant-design/icons";
 import logo from "../assets/images/music-trivia-logo.png";
+import Auth from "../utils/auth";
 
 const { Option } = Select;
 const { Title } = Typography;
@@ -31,9 +32,22 @@ const Home = () => {
         },
     };
 
+    const tailFormItemLayout = {
+        wrapperCol: {
+            span: 24,
+            offset: 0,
+        },
+    };
+
     const history = useHistory();
 
     const handleFormSubmit = (event) => {
+        const token = Auth.loggedIn() ? Auth.getToken() : null;
+        if (!token) {
+            message.error("Please sign in to play :)");
+
+            return false;
+        }
         history.push(`/quiz?length=${questions}&artist=${artist}`);
     };
 
@@ -79,7 +93,7 @@ const Home = () => {
                 >
                     <Input onChange={handleChange} />
                 </Form.Item>
-                <Form.Item>
+                <Form.Item {...tailFormItemLayout}>
                     <Button
                         type="primary"
                         shape="round"
