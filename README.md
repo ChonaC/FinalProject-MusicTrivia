@@ -57,22 +57,22 @@
 -   Our application can be viewed here: [Link to Deployed Application][deployed-link]
 
 Login 
-![login screenshot]
+![login screenshot](https://i.postimg.cc/9Mq7YhGn/Login-screen.png)
 
 Sign Up
-![signup screenshot]
+![signup screenshot](https://i.postimg.cc/d0g71xzm/Signup-screen.png)
 
 Quiz Homepage
-![quiz homepage screenshot]
+![quiz homepage screenshot](https://i.postimg.cc/L5QF9rWm/quizlength-artist-option.png)
 
 Quiz Question
-![quiz question screenshot]
+![quiz question screenshot](https://i.postimg.cc/d0Z1z9L7/question-sample.png)
 
 End of Quiz
-![quiz question screenshot]
+![quiz question screenshot](https://i.postimg.cc/kXM5nC2P/final-score.png)
 
 Leaderboard
-![leaderboard screenshot]
+![leaderboard screenshot](https://i.postimg.cc/sgqf9Zw3/Leader-Board.png)
 
 ## License
 
