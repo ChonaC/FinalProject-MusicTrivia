@@ -1,6 +1,7 @@
 import React from "react";
 import { Table, Tag, Space } from "antd";
 import { useQuery } from "@apollo/client";
+import { v4 as uuidv4 } from 'uuid';
 
 import { GET_SCORES } from "../utils/queries";
 
@@ -21,7 +22,7 @@ const Leaderboard = () => {
             key: "rank",
             // width: 70,
             // * To get the index of the sorted array for the rank
-            render: (item) => <>{dataSource.indexOf(item) + 1}</>,
+            render: (item) => <>key={uuidv4}{dataSource.indexOf(item) + 1}</>,
         },
         {
             title: "Username",

@@ -1,6 +1,6 @@
 const axios = require("axios").default;
 
-const apiKey = "";
+const apiKey = "FhWeIZZgVmSVvLQFz-lIhHKNngbo2AOkwNp_FjUxPfyzRx-bXRDXwVk8_Tl_WqHr";
 
 export const searchSong = async () => {
     const random = Math.floor(Math.random() * 2000000);
