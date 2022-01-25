@@ -17,17 +17,17 @@
 
 ## Group Contributors
 
--   Bryson Cole: 
+-   Bryson Cole: Portfolio page for the site.
 
--   Chona Castillo: 
+-   Chona Castillo: Github set up along with ReadMe and Presentation.
 
--   Daliya Benny: 
+-   Daliya Benny: Queries for Log In, Sign Up and Log Out.
 
--   Jimmy Zheng: 
+-   Jimmy Zheng: Setup of files into MERN. 
 
--   Taylor Paddock: 
+-   Taylor Paddock: Wireframe for portfolio page, react frontend updates and helping where it's needed.
 
--   Tim Renken:
+-   Tim Renken: API connection and queries.
 
 ## Description
 
@@ -158,7 +158,7 @@ To run and test the program refer to the project demo as a walkthrough to get st
 Type in
 
 ```
-npm start
+npm run develop
 ```
 
 If modules are missing type in

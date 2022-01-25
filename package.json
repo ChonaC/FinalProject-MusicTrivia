@@ -29,6 +29,7 @@
         "@emotion/styled": "^11.6.0",
         "antd": "^4.18.3",
         "bcrypt": "^5.0.1",
+        "concurrently": "^7.0.0",
         "connect-session-sequelize": "^7.1.2",
         "cors": "^2.8.5",
         "dotenv": "^10.0.0",
