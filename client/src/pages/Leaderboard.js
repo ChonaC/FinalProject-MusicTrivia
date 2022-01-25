@@ -22,7 +22,7 @@ const Leaderboard = () => {
             key: "rank",
             // width: 70,
             // * To get the index of the sorted array for the rank
-            render: (item) => <>key={uuidv4}{dataSource.indexOf(item) + 1}</>,
+            render: (item) => <>{dataSource.indexOf(item) + 1}</>,
         },
         {
             title: "Username",
