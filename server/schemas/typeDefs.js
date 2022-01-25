@@ -1,73 +1,61 @@
-const { gql } = require('apollo-server-express');
+const { gql } = require("apollo-server-express");
 
 const typeDefs = gql`
-  type User {
-    _id: ID
-    username: String
-    email: String
-    password: String
-    songs: [Song]
-    scores:[Score]
-  }
+    type User {
+        _id: ID
+        username: String
+        email: String
+        password: String
+        songs: [Song]
+        scores: [Score]
+    }
 
-  type Song {
-    _id: ID
-    song_name: String
-    video_id: String
-    user: User
-  }
+    type Song {
+        _id: ID
+        song_name: String
+        video_id: String
+        user: User
+    }
 
-  type Score {
-    _id: ID
-    points: Float
-    date_created: String
-    user: User
-  }
-  
-  type Auth {
-    token: ID!
-    user: User
-  }
+    type Score {
+        _id: ID
+        points: Int
+        date_created: String
+        username: String
+        tags: [String]
+    }
 
-  type Query{
-      users:[User]
-      songs:[Song]
-      scores:[Score]
+    type Auth {
+        token: ID!
+        user: User
+    }
 
-      user(username: String!): User
-      song(_id:ID!): Song
-      score(_id:ID!): Score
+    type Query {
+        users: [User]
+        songs: [Song]
+        scores: [Score]
 
-      songsofUser(username: String!):[Song]
-      scoresOfUser(username: String!):[Score]
-  }
-  type Mutation {
-    addUser(
-        username: String!, 
-        email: String!, 
-        password: String!): Auth
+        user: User
 
-    login(
-        username: String!, 
-        password: String!): Auth
+        userByUsername(username: String!): User
+        song(_id: ID!): Song
+        score(_id: ID!): Score
 
-    addSong( 
-        song_name:String!,
-        video_id:String!
-        ):Song
+        songsofUser(username: String!): [Song]
+        scoresOfUser(username: String!): [Score]
+    }
+    type Mutation {
+        addUser(username: String!, email: String!, password: String!): Auth
 
-    addScore( 
-        points:Float!,
-        ):Score 
+        login(username: String!, email: String!, password: String!): Auth
 
-    updateScore(
-        _id:ID!,
-        points:Float!,
-    ):Score 
+        addSong(song_name: String!, video_id: String!): Song
 
-    removeSong(_id:ID!):Song
-    removeScore(_id:ID!):Score
-  }
+        addScore(points: Int!, tags: [String]): Score
+        updateScore(_id: ID!, points: Float!): Score
 
- `;
+        removeSong(_id: ID!): Song
+        removeScore(_id: ID!): Score
+    }
+`;
 module.exports = typeDefs;
