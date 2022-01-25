@@ -1,5 +1,6 @@
 import React from "react";
 
+import { v4 as uuidv4 } from 'uuid';
 import { Typography, Button, Image } from "antd";
 const { Title, Paragraph } = Typography;
 
@@ -27,8 +28,9 @@ const Question = (props) => {
                     block
                     style={{ marginTop: 20, height: 40 }}
                     onClick={handleQuestion}
+                    key={uuidv4()}
                 >
-                    <Title level={5} style={{ color: "white" }} ellipsis>
+                    <Title level={5} style={{ color: "white" }} ellipsis key={uuidv4()}>
                         {title}
                     </Title>
                 </Button>

@@ -1,6 +1,7 @@
 import React from "react";
 import { Table, Tag, Space } from "antd";
 import { useQuery } from "@apollo/client";
+import { v4 as uuidv4 } from 'uuid';
 
 import { GET_SCORES } from "../utils/queries";
 
