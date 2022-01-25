@@ -13,9 +13,11 @@ export const searchSong = async () => {
 };
 
 export const searchArtist = async (artist) => {
-    const res = axios.get(`https://api.genius.com/search?q=${artist}`, {
-        headers: { Authorization: "Bearer " + apiKey },
-    });
+    const res = axios.get(`https://api.genius.com/search?q=${artist}&access_token=${apiKey}`
+    // const res = axios.get(`https://api.genius.com/search?q=${artist}`, {
+    //     headers: { Authorization: "Bearer " + apiKey },
+    // }
+    );
 
     return res;
 };
