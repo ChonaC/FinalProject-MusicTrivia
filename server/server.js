@@ -18,10 +18,6 @@ const server = new ApolloServer({
 
 server.applyMiddleware({ app });
 
-app.use(cors({
-    origin: 'https://morning-peak-90413.herokuapp.com/'
-}));
-
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
