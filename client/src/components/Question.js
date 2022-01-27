@@ -1,6 +1,6 @@
 import React from "react";
 
-import { v4 as uuidv4 } from 'uuid';
+import { v4 as uuidv4 } from "uuid";
 import { Typography, Button, Image } from "antd";
 const { Title, Paragraph } = Typography;
 
@@ -17,6 +17,11 @@ const Question = (props) => {
 
     return (
         <div style={{ textAlign: "center" }}>
+            <Title level={5}>
+                Match the album cover art shown with the correct song from the
+                album.
+            </Title>
+
             <Image
                 style={{ marginTop: 20 }}
                 preview={false}
@@ -30,7 +35,12 @@ const Question = (props) => {
                     onClick={handleQuestion}
                     key={uuidv4()}
                 >
-                    <Title level={5} style={{ color: "white" }} ellipsis key={uuidv4()}>
+                    <Title
+                        level={5}
+                        style={{ color: "white" }}
+                        ellipsis
+                        key={uuidv4()}
+                    >
                         {title}
                     </Title>
                 </Button>

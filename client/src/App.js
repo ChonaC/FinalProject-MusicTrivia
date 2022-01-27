@@ -16,6 +16,7 @@ import SignUp from "./pages/SignUp";
 import Login from "./pages/Login";
 import Leaderboard from "./pages/Leaderboard";
 import Profile from "./pages/Profile";
+import NotFound from "./pages/NotFound";
 
 import { Layout } from "antd";
 
@@ -69,6 +70,9 @@ function App() {
                             </Route>
                             <Route exact path="/profile">
                                 <Profile />
+                            </Route>
+                            <Route>
+                                <NotFound />
                             </Route>
                         </Switch>
                     </Layout>
