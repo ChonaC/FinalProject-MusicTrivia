@@ -140,6 +140,9 @@ const Quiz = () => {
                 length={length}
                 gameOver={gameOver}
             />
+
+            <p>Match the album cover art that's shown with the correct song from the album.</p>
+
             {gameOver ? (
                 <Result
                     icon={<TrophyOutlined />}

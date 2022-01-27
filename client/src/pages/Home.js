@@ -1,13 +1,15 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 
-import { Typography, Form, Input, Select, Button, message } from "antd";
+import { Typography, Form, Input, Select, Button, Tabs, message } from "antd";
 import { PlayCircleOutlined } from "@ant-design/icons";
 import logo from "../assets/images/music-trivia-logo.png";
 import Auth from "../utils/auth";
 
 const { Option } = Select;
 const { Title } = Typography;
+const { TabPane } = Tabs;
+
 
 const Home = () => {
     const [questions, setQuestions] = useState(5);
@@ -70,7 +72,29 @@ const Home = () => {
             />
             <Title>Music Trivia</Title>
 
-            <p>Guess the name of each song.</p>
+            <br></br>
+
+            <h3>View our easy steps below.</h3>
+
+            <Tabs defaultActiveKey="1" centered>
+                <TabPane tab="Step 1" key="1">
+                  Select your quiz length.
+                </TabPane>
+                <TabPane tab="Step 2" key="2">
+                  Type in an artist of your choice.
+                </TabPane>
+                <TabPane tab="Step 3" key="3">
+                  Match the album cover art that's shown with the correct song from the album.
+                </TabPane>
+                <TabPane tab="Step 4" key="4">
+                  Have fun!
+                </TabPane>
+            </Tabs>
+
+            <br></br>
+            <br></br>
+
+            
             <Form {...formItemLayout} onFinish={handleFormSubmit}>
                 <Form.Item name="quiz-length" label="Quiz Length">
                     <Select
