@@ -123,7 +123,9 @@ const Leaderboard = () => {
         {
             title: "Rank",
             key: "rank",
-            // width: 70,
+            fixed: "left",
+            align: "center",
+            width: "10%",
             // * To get the index of the sorted array for the rank
             render: (item) => <>{dataSource.indexOf(item) + 1}</>,
             sorter: (a, b) => dataSource.indexOf(a) - dataSource.indexOf(b),
@@ -141,6 +143,7 @@ const Leaderboard = () => {
             title: "Tags",
             key: "tags",
             dataIndex: "tags",
+            width: "25%",
             ...getColumnSearchProps("tags", "Artist"),
 
             render: (tags) => (
@@ -172,25 +175,28 @@ const Leaderboard = () => {
             dataIndex: "date_created",
             key: "date",
             align: "right",
+            width: "25%",
             sorter: (a, b) => a.date_created < b.date_created,
             sortDirection: ["descend", "ascend"],
             ...getColumnSearchProps("date_created", "Date"),
-
-            // width: 93,
         },
         {
             title: "Score",
             dataIndex: "points",
             key: "score",
             align: "right",
+            width: "15%",
             sorter: (a, b) => a.points - b.points,
             sortDirection: ["descend", "ascend"],
-            // width: 80,
         },
     ];
     return (
         <div>
-            <Table dataSource={dataSource} columns={columns} />
+            <Table
+                dataSource={dataSource}
+                columns={columns}
+                scroll={{ x: 850, y: 800 }}
+            />
         </div>
     );
 };
