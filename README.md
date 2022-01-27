@@ -21,11 +21,11 @@
 
 -   Chona Castillo: Github set up along with ReadMe and Presentation.
 
--   Daliya Benny: Queries for Log In, Sign Up and Log Out.
+-   Daliya Benny: Mongoose Models, GraphQl queries and mutations.
 
 -   Jimmy Zheng: Setup of files into MERN. 
 
--   Taylor Paddock: Wireframe for portfolio page, react frontend updates and helping where it's needed.
+-   Taylor Paddock: Wireframe, frontend updates and helping when needed.
 
 -   Tim Renken: API connection and queries.
 
@@ -63,7 +63,7 @@ Sign Up
 ![signup screenshot](https://i.postimg.cc/d0g71xzm/Signup-screen.png)
 
 Quiz Homepage
-![quiz homepage screenshot](https://i.postimg.cc/L5QF9rWm/quizlength-artist-option.png)
+![quiz homepage screenshot](./images/homepage.png)
 
 Quiz Question
 ![quiz question screenshot](https://i.postimg.cc/d0Z1z9L7/question-sample.png)
