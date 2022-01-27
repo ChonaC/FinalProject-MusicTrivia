@@ -126,6 +126,8 @@ const Leaderboard = () => {
             // width: 70,
             // * To get the index of the sorted array for the rank
             render: (item) => <>{dataSource.indexOf(item) + 1}</>,
+            sorter: (a, b) => dataSource.indexOf(a) - dataSource.indexOf(b),
+            sortDirection: ["descend", "ascend"],
         },
         {
             title: "Username",
@@ -170,6 +172,8 @@ const Leaderboard = () => {
             dataIndex: "date_created",
             key: "date",
             align: "right",
+            sorter: (a, b) => a.date_created < b.date_created,
+            sortDirection: ["descend", "ascend"],
             ...getColumnSearchProps("date_created", "Date"),
 
             // width: 93,
@@ -179,6 +183,8 @@ const Leaderboard = () => {
             dataIndex: "points",
             key: "score",
             align: "right",
+            sorter: (a, b) => a.points - b.points,
+            sortDirection: ["descend", "ascend"],
             // width: 80,
         },
     ];
