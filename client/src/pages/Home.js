@@ -74,7 +74,7 @@ const Home = () => {
 
             <br></br>
 
-            <h3>View our how to play below.</h3>
+            <h3>View how to play below.</h3>
 
             <Tabs defaultActiveKey="1" centered>
                 <TabPane tab="Step 1" key="1">
