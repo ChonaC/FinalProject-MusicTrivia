@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { v4 as uuidv4 } from 'uuid';
+import { v4 as uuidv4 } from "uuid";
 
 import ProgressBar from "../components/ProgressBar";
 import Question from "../components/Question";
@@ -140,8 +140,6 @@ const Quiz = () => {
                 length={length}
                 gameOver={gameOver}
             />
-
-            <p>Match the album cover art shown with the correct song from the album.</p>
 
             {gameOver ? (
                 <Result
