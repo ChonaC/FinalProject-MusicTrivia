@@ -141,7 +141,7 @@ const Quiz = () => {
                 gameOver={gameOver}
             />
 
-            <p>Match the album cover art that's shown with the correct song from the album.</p>
+            <p>Match the album cover art shown with the correct song from the album.</p>
 
             {gameOver ? (
                 <Result
