@@ -14,11 +14,11 @@
     "author": "",
     "license": "MIT",
     "devDependencies": {
+        "concurrently": "^5.1.0",
         "eslint": "^7.12.1",
         "eslint-config-prettier": "^6.15.0",
         "nodemon": "^2.0.3",
-        "prettier": "^2.1.2",
-        "concurrently": "^5.1.0"
+        "prettier": "^2.1.2"
     },
     "bugs": {
         "url": "https://github.com/ChonaC/FinalProject-MusicTrivia/issues"
@@ -41,6 +41,7 @@
         "jsonwebtoken": "^8.5.1",
         "mongoose": "^6.1.7",
         "mysql2": "^2.3.3-rc.0",
+        "react-highlight-words": "^0.17.0",
         "sequelize": "^6.9.0"
     }
 }
