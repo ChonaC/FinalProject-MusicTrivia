@@ -1,6 +1,6 @@
 import React from "react";
 import Auth from "../utils/auth";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 import { useQuery } from "@apollo/client";
 import { QUERY_USER } from "../utils/queries";
@@ -24,9 +24,25 @@ const Navbar = () => {
         user = data.user;
     }
 
+    const pathname = useLocation().pathname;
+    console.log(pathname);
+
+    let selected = "logo";
+    if (pathname === "/") {
+        selected = "home";
+    } else if (pathname === "/leaderboard") {
+        selected = "leaderboard";
+    } else if (pathname === "/profile") {
+        selected = "profile";
+    } else if (pathname === "/login") {
+        selected = "login";
+    } else if (pathname === "/signup") {
+        selected = "signup";
+    }
+
     return (
         <nav>
-            <Menu mode="horizontal">
+            <Menu mode="horizontal" selectedKeys={selected}>
                 <Menu.Item key="logo">
                     <Link to="/">
                         <img src={logo} alt="" width="50" height="50" />

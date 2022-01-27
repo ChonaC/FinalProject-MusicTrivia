@@ -10,7 +10,6 @@ const { Option } = Select;
 const { Title } = Typography;
 const { TabPane } = Tabs;
 
-
 const Home = () => {
     const [questions, setQuestions] = useState(5);
     const [artist, setArtist] = useState("");
@@ -68,7 +67,7 @@ const Home = () => {
             <img
                 src={logo}
                 alt=""
-                style={{ width: "50vh", maxWidth: "70vw" }}
+                style={{ width: "30vh", maxWidth: "50vw" }}
             />
             <Title>Music Trivia</Title>
 
@@ -78,23 +77,23 @@ const Home = () => {
 
             <Tabs defaultActiveKey="1" centered>
                 <TabPane tab="Step 1" key="1">
-                  Select your quiz length.
+                    Select your quiz length.
                 </TabPane>
                 <TabPane tab="Step 2" key="2">
-                  Type in an artist of your choice.
+                    Type in an artist of your choice.
                 </TabPane>
                 <TabPane tab="Step 3" key="3">
-                  Match the album cover art that's shown with the correct song from the album.
+                    Match the album cover art that's shown with the correct song
+                    from the album.
                 </TabPane>
                 <TabPane tab="Step 4" key="4">
-                  Have fun!
+                    Have fun!
                 </TabPane>
             </Tabs>
 
             <br></br>
             <br></br>
 
-            
             <Form {...formItemLayout} onFinish={handleFormSubmit}>
                 <Form.Item name="quiz-length" label="Quiz Length">
                     <Select
