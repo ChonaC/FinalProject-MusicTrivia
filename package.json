@@ -17,7 +17,8 @@
         "eslint": "^7.12.1",
         "eslint-config-prettier": "^6.15.0",
         "nodemon": "^2.0.3",
-        "prettier": "^2.1.2"
+        "prettier": "^2.1.2",
+        "concurrently": "^5.1.0"
     },
     "bugs": {
         "url": "https://github.com/ChonaC/FinalProject-MusicTrivia/issues"
