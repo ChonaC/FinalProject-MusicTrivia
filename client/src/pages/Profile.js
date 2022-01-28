@@ -145,7 +145,7 @@ const Profile = () => {
             key: "rank",
             fixed: "left",
             align: "center",
-            width: "10%",
+            width: "8%",
             // * To get the index of the sorted array for the rank
             render: (item) => <>{dataSource.indexOf(item) + 1}</>,
             sorter: (a, b) => dataSource.indexOf(a) - dataSource.indexOf(b),
@@ -227,7 +227,11 @@ const Profile = () => {
                     </List.Item>
                 )}
             />
-            <Table dataSource={dataSource} columns={columns} />
+            <Table
+                dataSource={dataSource}
+                columns={columns}
+                scroll={{ x: 850, y: 800 }}
+            />
         </div>
     );
 };
