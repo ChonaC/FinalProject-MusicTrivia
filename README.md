@@ -17,17 +17,17 @@
 
 ## Group Contributors
 
--   Bryson Cole: Portfolio page for the site.
+-   Bryson Cole: Profile page set up and creation.
 
 -   Chona Castillo: Github set up along with ReadMe and Presentation.
 
 -   Daliya Benny: Mongoose Models, GraphQl queries and mutations.
 
--   Jimmy Zheng: Setup of files into MERN. 
+-   Jimmy Zheng: Setup of files into MERN and frontend enhancements.
 
 -   Taylor Paddock: Wireframe, frontend updates and helping when needed.
 
--   Tim Renken: API connection and queries.
+-   Tim Renken: API connection and queries. Heroku connection.
 
 ## Description
 
@@ -52,7 +52,7 @@
 -   An alternate document to clone a repo can also be found at [github][github-link]
 
 
-## Usage ** Add new screenshot
+## Usage
 
 -   Our application can be viewed here: [Link to Deployed Application][deployed-link]
 
@@ -66,13 +66,16 @@ Quiz Homepage
 ![quiz homepage screenshot](./images/homepage.png)
 
 Quiz Question
-![quiz question screenshot](https://i.postimg.cc/d0Z1z9L7/question-sample.png)
+![quiz question screenshot](./images/quiz.png)
 
 End of Quiz
 ![quiz question screenshot](https://i.postimg.cc/kXM5nC2P/final-score.png)
 
 Leaderboard
-![leaderboard screenshot](https://i.postimg.cc/sgqf9Zw3/Leader-Board.png)
+![leaderboard screenshot](./images/leaderboard.png)
+
+Profile page
+![leaderboard screenshot](./images/profile.png)
 
 ## License
 
