@@ -6,10 +6,10 @@ export const QUERY_USER = gql`
             key: _id
             username
             email
-            songs {
+            song {
                 song_name
             }
-            scores {
+            score {
                 points
                 date_created
             }
