@@ -12,6 +12,7 @@ export const QUERY_USER = gql`
             score {
                 points
                 date_created
+                tags
             }
         }
     }
