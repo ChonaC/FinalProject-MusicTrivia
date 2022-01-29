@@ -32,7 +32,7 @@ const Profile = () => {
         let needSort = [...user.score];
         dataSource = needSort.sort((a, b) => (a.points < b.points ? 1 : -1));
         gameNum = dataSource.length;
-        highscore = dataSource[0].points;
+        highscore = dataSource[0]?.points;
         dataSource.forEach((item) => {
             let add = item.points;
             pointsRight = pointsRight + add;
