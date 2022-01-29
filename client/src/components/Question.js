@@ -1,7 +1,7 @@
 import React from "react";
 
 import { v4 as uuidv4 } from "uuid";
-import { Typography, Button, Image } from "antd";
+import { Typography, Button, Image, message } from "antd";
 const { Title, Paragraph } = Typography;
 
 const Question = (props) => {
@@ -10,6 +10,9 @@ const Question = (props) => {
         if (props.songTitle === event.target.innerText) {
             console.log("correct");
             props.setCorrect(props.correct + 1);
+            message.success("Correct! :)", 1);
+        } else {
+            message.error("Incorrect! :(", 1);
         }
         props.newQuestion();
         props.setCompleted(props.completed + 1);
