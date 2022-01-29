@@ -1,7 +1,12 @@
 import React, { useState } from "react";
-import { Table, Tag, Space, Button, List, Input } from "antd";
+import { Table, Tag, Space, Button, List, Input, Statistic } from "antd";
 import Highlighter from "react-highlight-words";
-import { SearchOutlined } from "@ant-design/icons";
+import {
+    SearchOutlined,
+    CustomerServiceOutlined,
+    CheckCircleOutlined,
+    TrophyOutlined,
+} from "@ant-design/icons";
 
 import { useQuery } from "@apollo/client";
 import { QUERY_USER } from "../utils/queries";
@@ -203,11 +208,11 @@ const Profile = () => {
         },
     ];
 
-    const listdata = [
-        "Games Played: " + gameNum,
-        "High Score: " + highscore,
-        "Correct Answers: " + questionsRight,
-    ];
+    // const listdata = [
+    //     "Games Played: " + gameNum,
+    //     "High Score: " + highscore,
+    //     "Correct Answers: " + questionsRight,
+    // ];
 
     return (
         <div
@@ -218,7 +223,24 @@ const Profile = () => {
         >
             <Avatar size={200} icon={<AntDesignOutlined />} />
             <Title level={2}>{user.username}</Title>
-            <List
+            <Space size={"large"} style={{ marginBottom: "20px" }}>
+                <Statistic
+                    title="Games Played"
+                    value={gameNum}
+                    prefix={<CustomerServiceOutlined />}
+                />
+                <Statistic
+                    title="High Score"
+                    value={highscore}
+                    prefix={<TrophyOutlined />}
+                />
+                <Statistic
+                    title="Correct Answers"
+                    value={questionsRight}
+                    prefix={<CheckCircleOutlined />}
+                />
+            </Space>
+            {/* <List
                 bordered
                 dataSource={listdata}
                 renderItem={(item) => (
@@ -226,7 +248,7 @@ const Profile = () => {
                         <Typography.Text></Typography.Text> {item}
                     </List.Item>
                 )}
-            />
+            /> */}
             <Table
                 dataSource={dataSource}
                 columns={columns}
