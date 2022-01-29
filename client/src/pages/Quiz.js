@@ -152,15 +152,15 @@ const Quiz = () => {
                         />
                     }
                     extra={[
-                        <Title level={4} italic={true}>
+                        <Title level={4} italic={true} key="title">
                             {correct} correct x 100 = {correct * 100} pts
                         </Title>,
-                        <Link to="/">
+                        <Link to="/" key="home">
                             <Button type="primary" icon={<ReloadOutlined />}>
                                 Play again
                             </Button>
                         </Link>,
-                        <Link to="/leaderboard">
+                        <Link to="/leaderboard" key="leaderboard">
                             <Button icon={<TrophyOutlined />}>
                                 Leaderboard
                             </Button>
