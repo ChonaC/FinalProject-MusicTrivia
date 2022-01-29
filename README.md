@@ -31,6 +31,8 @@
 
 ## Description
 
+Create a music trivia quiz, so when you login you can pick the amount of questions and enter an artist and based on the artist’s album cover art you will select the song that was on that album. You are then able to view a leaderboard and your profile and see how many games you’ve played, the correct answers you’ve made, and your high score.
+
 ## Link to the Application
 
 -   [Link to PowerPoint][powerpoint-link]
