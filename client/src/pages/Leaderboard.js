@@ -1,11 +1,13 @@
 import React, { useState } from "react";
-import { Table, Tag, Space, Input, Button } from "antd";
+import { Table, Tag, Space, Input, Button, Typography } from "antd";
 import Highlighter from "react-highlight-words";
 import { SearchOutlined } from "@ant-design/icons";
 import { useQuery } from "@apollo/client";
 import { v4 as uuidv4 } from "uuid";
 
 import { GET_SCORES } from "../utils/queries";
+
+const { Title } = Typography;
 
 const Leaderboard = () => {
     let { data } = useQuery(GET_SCORES);
@@ -175,7 +177,7 @@ const Leaderboard = () => {
             dataIndex: "date_created",
             key: "date",
             align: "right",
-            width: "25%",
+            width: "30%",
             sorter: (a, b) => a.date_created < b.date_created,
             sortDirection: ["descend", "ascend"],
             ...getColumnSearchProps("date_created", "Date"),
@@ -185,19 +187,27 @@ const Leaderboard = () => {
             dataIndex: "points",
             key: "score",
             align: "right",
-            width: "15%",
+            width: "10%",
             sorter: (a, b) => a.points - b.points,
             sortDirection: ["descend", "ascend"],
         },
     ];
     return (
-        <div>
+        <>
+            <div
+                className="page"
+                style={{
+                    textAlign: "center",
+                }}
+            >
+                <Title>Leaderboard</Title>
+            </div>
             <Table
                 dataSource={dataSource}
                 columns={columns}
                 scroll={{ x: 850, y: 800 }}
             />
-        </div>
+        </>
     );
 };
 

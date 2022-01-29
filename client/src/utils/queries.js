@@ -10,8 +10,10 @@ export const QUERY_USER = gql`
                 song_name
             }
             score {
+                key: _id
                 points
                 date_created
+                tags
             }
         }
     }

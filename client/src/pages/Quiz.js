@@ -8,7 +8,7 @@ import { searchArtist } from "../utils/API";
 
 import { useMutation } from "@apollo/client";
 import { ADD_SCORE } from "../utils/mutations";
-import { GET_SCORES } from "../utils/queries";
+import { GET_SCORES, QUERY_USER } from "../utils/queries";
 
 import { Typography, Statistic, Result, Button, Space } from "antd";
 import { TrophyOutlined } from "@ant-design/icons";
@@ -110,7 +110,7 @@ const Quiz = () => {
     };
 
     const [addScore, { error }] = useMutation(ADD_SCORE, {
-        refetchQueries: [{ query: GET_SCORES }],
+        refetchQueries: [{ query: GET_SCORES }, { query: QUERY_USER }],
     });
 
     const handleAddScore = async () => {
