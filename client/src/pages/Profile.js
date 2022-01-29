@@ -24,9 +24,11 @@ const Profile = () => {
     let highscore = 0;
     let pointsRight = 0;
     let questionsRight = 0;
+    let username = "";
 
     if (data) {
         user = data.user;
+        username = user.username;
         let needSort = [...user.score];
         dataSource = needSort.sort((a, b) => (a.points < b.points ? 1 : -1));
         gameNum = dataSource.length;
@@ -222,7 +224,7 @@ const Profile = () => {
             }}
         >
             <Avatar size={200} icon={<AntDesignOutlined />} />
-            <Title level={2}>{user.username}</Title>
+            <Title level={2}>{username}</Title>
             <Space size={"large"} style={{ marginBottom: "20px" }}>
                 <Statistic
                     title="Games Played"
