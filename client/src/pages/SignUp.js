@@ -186,6 +186,7 @@ const SignUp = () => {
                     <Button
                         type="primary"
                         htmlType="submit"
+                        shape="round"
                         icon={<UserAddOutlined />}
                     >
                         Register

@@ -117,6 +117,7 @@ const Login = () => {
                     <Button
                         type="primary"
                         htmlType="submit"
+                        shape="round"
                         icon={<LoginOutlined />}
                     >
                         Log in

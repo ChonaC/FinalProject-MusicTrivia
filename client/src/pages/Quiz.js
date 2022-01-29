@@ -156,12 +156,16 @@ const Quiz = () => {
                             {correct} correct x 100 = {correct * 100} pts
                         </Title>,
                         <Link to="/" key="home">
-                            <Button type="primary" icon={<ReloadOutlined />}>
+                            <Button
+                                type="primary"
+                                shape="round"
+                                icon={<ReloadOutlined />}
+                            >
                                 Play again
                             </Button>
                         </Link>,
                         <Link to="/leaderboard" key="leaderboard">
-                            <Button icon={<TrophyOutlined />}>
+                            <Button shape="round" icon={<TrophyOutlined />}>
                                 Leaderboard
                             </Button>
                         </Link>,
