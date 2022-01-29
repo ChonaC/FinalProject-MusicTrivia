@@ -1,11 +1,13 @@
 import React, { useState } from "react";
-import { Table, Tag, Space, Input, Button } from "antd";
+import { Table, Tag, Space, Input, Button, Typography } from "antd";
 import Highlighter from "react-highlight-words";
 import { SearchOutlined } from "@ant-design/icons";
 import { useQuery } from "@apollo/client";
 import { v4 as uuidv4 } from "uuid";
 
 import { GET_SCORES } from "../utils/queries";
+
+const { Title } = Typography;
 
 const Leaderboard = () => {
     let { data } = useQuery(GET_SCORES);
@@ -191,13 +193,21 @@ const Leaderboard = () => {
         },
     ];
     return (
-        <div>
+        <>
+            <div
+                className="page"
+                style={{
+                    textAlign: "center",
+                }}
+            >
+                <Title>Leaderboard</Title>
+            </div>
             <Table
                 dataSource={dataSource}
                 columns={columns}
                 scroll={{ x: 850, y: 800 }}
             />
-        </div>
+        </>
     );
 };
 
