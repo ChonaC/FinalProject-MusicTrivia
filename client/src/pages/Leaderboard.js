@@ -178,7 +178,7 @@ const Leaderboard = () => {
             key: "date",
             align: "right",
             width: "30%",
-            sorter: (a, b) => a.date_created < b.date_created,
+            sorter: (a, b) => (a.date_created < b.date_created ? 1 : -1),
             sortDirection: ["descend", "ascend"],
             ...getColumnSearchProps("date_created", "Date"),
         },
