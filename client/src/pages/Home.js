@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 
 import { Typography, Form, Input, Select, Button, Tabs, message } from "antd";
-import { PlayCircleOutlined } from "@ant-design/icons";
+import { PlayCircleOutlined, CaretRightOutlined } from "@ant-design/icons";
 import logo from "../assets/images/music-trivia-logo.png";
 import Auth from "../utils/auth";
 
@@ -69,7 +69,7 @@ const Home = () => {
                 alt=""
                 style={{ width: "30vh", maxWidth: "50vw" }}
             />
-            <Title>Music Trivia</Title>
+            <Title className="courgette">Music Trivia</Title>
 
             <br></br>
 
@@ -121,10 +121,10 @@ const Home = () => {
                 <Form.Item {...tailFormItemLayout}>
                     <Button
                         type="primary"
-                        shape="round"
+                        shape="circle"
                         htmlType="submit"
                         size="large"
-                        icon={<PlayCircleOutlined />}
+                        icon={<CaretRightOutlined />}
                     ></Button>
                 </Form.Item>
             </Form>

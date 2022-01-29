@@ -73,7 +73,9 @@ const SignUp = () => {
 
     return (
         <div className="page">
-            <Title style={{ textAlign: "center" }}>Sign up</Title>
+            <Title className="courgette" style={{ textAlign: "center" }}>
+                Sign up
+            </Title>
             <Form {...formItemLayout} onFinish={handleFormSubmit}>
                 <Form.Item
                     name="username"
@@ -184,6 +186,7 @@ const SignUp = () => {
                     <Button
                         type="primary"
                         htmlType="submit"
+                        shape="round"
                         icon={<UserAddOutlined />}
                     >
                         Register

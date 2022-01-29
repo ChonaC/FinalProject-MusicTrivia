@@ -1,7 +1,13 @@
 import React, { useState } from "react";
+import { useHistory } from "react-router-dom";
+
 import { Table, Tag, Space, Input, Button, Typography } from "antd";
 import Highlighter from "react-highlight-words";
-import { SearchOutlined } from "@ant-design/icons";
+import {
+    SearchOutlined,
+    PlayCircleOutlined,
+    CaretRightOutlined,
+} from "@ant-design/icons";
 import { useQuery } from "@apollo/client";
 import { v4 as uuidv4 } from "uuid";
 
@@ -18,6 +24,8 @@ const Leaderboard = () => {
         dataSource = needSort.sort((a, b) => (a.points < b.points ? 1 : -1));
         console.log(dataSource);
     }
+
+    const history = useHistory();
 
     const [searchText, setSearchText] = useState("");
     const [searchedColumn, setSearchedColumn] = useState("");
@@ -142,10 +150,13 @@ const Leaderboard = () => {
             // ellipsis: true,
         },
         {
-            title: "Tags",
+            title: "Artist",
             key: "tags",
             dataIndex: "tags",
             width: "25%",
+            sorter: (a, b) => a.tags[0] - b.tags[0],
+            sortDirection: ["descend", "ascend"],
+
             ...getColumnSearchProps("tags", "Artist"),
 
             render: (tags) => (
@@ -169,6 +180,16 @@ const Leaderboard = () => {
                             </Tag>
                         );
                     })}
+                    <Button
+                        icon={<CaretRightOutlined />}
+                        shape="circle"
+                        size="small"
+                        onClick={() => {
+                            history.push(
+                                `/quiz?length=${tags[0]}&artist=${tags[1]}`
+                            );
+                        }}
+                    ></Button>
                 </>
             ),
         },
@@ -178,7 +199,7 @@ const Leaderboard = () => {
             key: "date",
             align: "right",
             width: "30%",
-            sorter: (a, b) => a.date_created < b.date_created,
+            sorter: (a, b) => (a.date_created > b.date_created ? 1 : -1),
             sortDirection: ["descend", "ascend"],
             ...getColumnSearchProps("date_created", "Date"),
         },
@@ -200,7 +221,9 @@ const Leaderboard = () => {
                     textAlign: "center",
                 }}
             >
-                <Title>Leaderboard</Title>
+                <Title className="courgette" style={{ marginBottom: "0" }}>
+                    Leaderboard
+                </Title>
             </div>
             <Table
                 dataSource={dataSource}

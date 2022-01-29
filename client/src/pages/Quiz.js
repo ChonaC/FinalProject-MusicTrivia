@@ -11,7 +11,7 @@ import { ADD_SCORE } from "../utils/mutations";
 import { GET_SCORES, QUERY_USER } from "../utils/queries";
 
 import { Typography, Statistic, Result, Button, Space } from "antd";
-import { TrophyOutlined } from "@ant-design/icons";
+import { TrophyOutlined, ReloadOutlined } from "@ant-design/icons";
 const { Title, Paragraph } = Typography;
 
 function useQuery() {
@@ -152,14 +152,22 @@ const Quiz = () => {
                         />
                     }
                     extra={[
-                        <Title level={4} italic={true}>
+                        <Title level={4} italic={true} key="title">
                             {correct} correct x 100 = {correct * 100} pts
                         </Title>,
-                        <Link to="/">
-                            <Button type="primary">Play again</Button>
+                        <Link to="/" key="home">
+                            <Button
+                                type="primary"
+                                shape="round"
+                                icon={<ReloadOutlined />}
+                            >
+                                Play again
+                            </Button>
                         </Link>,
-                        <Link to="/leaderboard">
-                            <Button>Leaderboard</Button>
+                        <Link to="/leaderboard" key="leaderboard">
+                            <Button shape="round" icon={<TrophyOutlined />}>
+                                Leaderboard
+                            </Button>
                         </Link>,
                     ]}
                 />
