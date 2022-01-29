@@ -142,7 +142,7 @@ const Leaderboard = () => {
             // ellipsis: true,
         },
         {
-            title: "Tags",
+            title: "Artist",
             key: "tags",
             dataIndex: "tags",
             width: "25%",

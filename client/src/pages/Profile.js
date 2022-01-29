@@ -160,7 +160,7 @@ const Profile = () => {
             sortDirection: ["descend", "ascend"],
         },
         {
-            title: "Tags",
+            title: "Artist",
             key: "tags",
             dataIndex: "tags",
             width: "25%",
