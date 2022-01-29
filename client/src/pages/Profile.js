@@ -164,6 +164,8 @@ const Profile = () => {
             key: "tags",
             dataIndex: "tags",
             width: "25%",
+            sorter: (a, b) => a.tags[0] - b.tags[0],
+            sortDirection: ["descend", "ascend"],
             ...getColumnSearchProps("tags", "Artist"),
 
             render: (tags) => (
@@ -196,7 +198,7 @@ const Profile = () => {
             key: "date",
             align: "right",
             width: "30%",
-            sorter: (a, b) => (a.date_created < b.date_created ? 1 : -1),
+            sorter: (a, b) => (a.date_created > b.date_created ? 1 : -1),
             sortDirection: ["descend", "ascend"],
             ...getColumnSearchProps("date_created", "Date"),
         },
