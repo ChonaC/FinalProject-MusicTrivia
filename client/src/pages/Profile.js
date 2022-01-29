@@ -153,7 +153,7 @@ const Profile = () => {
             key: "rank",
             fixed: "left",
             align: "center",
-            width: "8%",
+            width: "7%",
             // * To get the index of the sorted array for the rank
             render: (item) => <>{dataSource.indexOf(item) + 1}</>,
             sorter: (a, b) => dataSource.indexOf(a) - dataSource.indexOf(b),
@@ -218,32 +218,37 @@ const Profile = () => {
     // ];
 
     return (
-        <div
-            className="page"
-            style={{
-                textAlign: "center",
-            }}
-        >
-            <Avatar size={200} icon={<AntDesignOutlined />} />
-            <Title level={2}>{username}</Title>
-            <Space size={"large"} style={{ marginBottom: "20px" }}>
-                <Statistic
-                    title="Games Played"
-                    value={gameNum}
-                    prefix={<CustomerServiceOutlined />}
+        <>
+            <div
+                className="page"
+                style={{
+                    textAlign: "center",
+                }}
+            >
+                <Avatar
+                    size={200}
+                    icon={<AntDesignOutlined />}
+                    style={{ marginBottom: "15px" }}
                 />
-                <Statistic
-                    title="High Score"
-                    value={highscore}
-                    prefix={<TrophyOutlined />}
-                />
-                <Statistic
-                    title="Correct Answers"
-                    value={questionsRight}
-                    prefix={<CheckCircleOutlined />}
-                />
-            </Space>
-            {/* <List
+                <Title level={2}>{username}</Title>
+                <Space size={"large"}>
+                    <Statistic
+                        title="Games Played"
+                        value={gameNum}
+                        prefix={<CustomerServiceOutlined />}
+                    />
+                    <Statistic
+                        title="High Score"
+                        value={highscore}
+                        prefix={<TrophyOutlined />}
+                    />
+                    <Statistic
+                        title="Correct Answers"
+                        value={questionsRight}
+                        prefix={<CheckCircleOutlined />}
+                    />
+                </Space>
+                {/* <List
                 bordered
                 dataSource={listdata}
                 renderItem={(item) => (
@@ -252,12 +257,14 @@ const Profile = () => {
                     </List.Item>
                 )}
             /> */}
+            </div>
             <Table
                 dataSource={dataSource}
                 columns={columns}
                 scroll={{ x: 850, y: 800 }}
+                style={{ width: "100%" }}
             />
-        </div>
+        </>
     );
 };
 
