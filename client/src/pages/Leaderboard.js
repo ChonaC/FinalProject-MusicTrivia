@@ -200,7 +200,9 @@ const Leaderboard = () => {
                     textAlign: "center",
                 }}
             >
-                <Title>Leaderboard</Title>
+                <Title className="courgette" style={{ marginBottom: "0" }}>
+                    Leaderboard
+                </Title>
             </div>
             <Table
                 dataSource={dataSource}

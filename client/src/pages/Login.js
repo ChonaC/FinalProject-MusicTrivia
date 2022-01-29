@@ -67,7 +67,9 @@ const Login = () => {
 
     return (
         <div className="page">
-            <Title style={{ textAlign: "center" }}>Log in</Title>
+            <Title className="courgette" style={{ textAlign: "center" }}>
+                Log in
+            </Title>
 
             <Form {...formItemLayout} onFinish={handleFormSubmit}>
                 <Form.Item

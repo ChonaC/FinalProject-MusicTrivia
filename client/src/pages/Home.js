@@ -69,7 +69,7 @@ const Home = () => {
                 alt=""
                 style={{ width: "30vh", maxWidth: "50vw" }}
             />
-            <Title>Music Trivia</Title>
+            <Title className="courgette">Music Trivia</Title>
 
             <br></br>
 
