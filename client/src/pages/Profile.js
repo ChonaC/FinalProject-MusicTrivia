@@ -42,6 +42,7 @@ const Profile = () => {
         console.log(gameNum);
         console.log(highscore);
         console.log(questionsRight);
+        console.log(dataSource);
     }
 
     const [searchText, setSearchText] = useState("");
