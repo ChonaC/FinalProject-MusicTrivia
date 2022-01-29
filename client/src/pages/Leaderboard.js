@@ -1,7 +1,13 @@
 import React, { useState } from "react";
+import { useHistory } from "react-router-dom";
+
 import { Table, Tag, Space, Input, Button, Typography } from "antd";
 import Highlighter from "react-highlight-words";
-import { SearchOutlined } from "@ant-design/icons";
+import {
+    SearchOutlined,
+    PlayCircleOutlined,
+    CaretRightOutlined,
+} from "@ant-design/icons";
 import { useQuery } from "@apollo/client";
 import { v4 as uuidv4 } from "uuid";
 
@@ -18,6 +24,8 @@ const Leaderboard = () => {
         dataSource = needSort.sort((a, b) => (a.points < b.points ? 1 : -1));
         console.log(dataSource);
     }
+
+    const history = useHistory();
 
     const [searchText, setSearchText] = useState("");
     const [searchedColumn, setSearchedColumn] = useState("");
@@ -172,6 +180,16 @@ const Leaderboard = () => {
                             </Tag>
                         );
                     })}
+                    <Button
+                        icon={<CaretRightOutlined />}
+                        shape="circle"
+                        size="small"
+                        onClick={() => {
+                            history.push(
+                                `/quiz?length=${tags[0]}&artist=${tags[1]}`
+                            );
+                        }}
+                    ></Button>
                 </>
             ),
         },
